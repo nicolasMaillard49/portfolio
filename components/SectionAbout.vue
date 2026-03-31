@@ -1,0 +1,106 @@
+<template>
+  <section id="about" class="py-24 relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Header -->
+      <div class="mb-16 reveal">
+        <p class="text-electric-500 text-sm font-medium font-display mb-3 tracking-widest uppercase">À propos</p>
+        <div class="section-sep mb-5" />
+        <h2 class="font-display font-bold dark:text-white text-navy-900 text-4xl leading-tight">
+          Qui suis-je ?
+        </h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <!-- Left: Bio -->
+        <div class="space-y-8">
+          <div class="reveal reveal-delay-1 space-y-5 dark:text-gray-300 text-gray-600 text-base leading-relaxed">
+            <p>
+              Je suis <strong class="dark:text-white text-navy-900 font-semibold">Nicolas Maillard</strong>, développeur web full-stack basé à Bordeaux, actuellement en Bachelor Développement Web chez <strong class="dark:text-white text-navy-900 font-semibold">Studi.fr</strong>.
+            </p>
+            <p>
+              Passionné par la création d'interfaces modernes et de systèmes robustes, j'ai fondé
+              <a href="https://purewebagency.com" target="_blank" rel="noopener" class="dark:text-electric-400 text-electric-600 font-medium hover:underline inline-flex items-center gap-1">
+                Pure Web Agency
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              — une agence web spécialisée dans la création de sites <strong class="dark:text-white text-navy-900 font-semibold">modernes et performants</strong>, avec hébergement en France et conformité RGPD totale.
+            </p>
+            <p>
+              Ma philosophie : <em class="dark:text-gray-200 text-navy-800">"valoriser le savoir-faire français"</em> à travers des produits web qui allient esthétique, performance et accessibilité.
+            </p>
+          </div>
+
+          <!-- Pure Web Agency card -->
+          <div class="reveal reveal-delay-2 dark:bg-dark-card bg-gray-50 dark:border-dark-border border-gray-200 border rounded-2xl p-5 flex items-start gap-4 shadow-card-dark">
+            <div class="w-10 h-10 rounded-xl bg-electric-500/15 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-electric-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold dark:text-white text-navy-900 mb-1">Pure Web Agency</h3>
+              <p class="dark:text-gray-400 text-gray-500 text-sm leading-relaxed">
+                Agence web fondée par Nicolas. Sites modernes &amp; performants, hébergement 🇫🇷, conformité RGPD.
+              </p>
+              <a href="https://purewebagency.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 mt-2 text-xs text-electric-400 hover:text-electric-300 font-medium transition-colors">
+                purewebagency.com
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="reveal reveal-delay-3 grid grid-cols-3 gap-4">
+            <div v-for="stat in stats" :key="stat.label" class="dark:bg-dark-card bg-gray-50 dark:border-dark-border border-gray-200 border rounded-xl p-4 text-center">
+              <p class="font-display font-bold text-2xl dark:text-white text-navy-900">{{ stat.value }}</p>
+              <p class="dark:text-gray-400 text-gray-500 text-xs mt-0.5">{{ stat.label }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Skills -->
+        <div class="space-y-6 reveal reveal-delay-2">
+          <h3 class="font-display font-semibold dark:text-white text-navy-900 text-lg">Compétences techniques</h3>
+          <div class="space-y-4">
+            <div v-for="skill in skills" :key="skill.name" class="space-y-1.5">
+              <div class="flex justify-between items-center">
+                <span class="dark:text-gray-200 text-gray-700 text-sm font-medium">{{ skill.name }}</span>
+                <span class="dark:text-gray-400 text-gray-500 text-xs">{{ skill.level }}%</span>
+              </div>
+              <div class="h-1.5 dark:bg-dark-border bg-gray-200 rounded-full overflow-hidden">
+                <div class="skill-bar-fill" :data-width="skill.level" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Other skills grid -->
+          <div class="pt-4">
+            <h4 class="dark:text-gray-400 text-gray-500 text-xs font-medium uppercase tracking-widest mb-3">Autres technologies</h4>
+            <div class="flex flex-wrap gap-2">
+              <span v-for="t in otherTech" :key="t" class="tech-tag">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+const skills = [
+  { name: 'Vue.js / Nuxt', level: 90 },
+  { name: 'TypeScript', level: 82 },
+  { name: 'TailwindCSS', level: 92 },
+  { name: 'NestJS', level: 75 },
+  { name: 'Prisma / PostgreSQL', level: 72 },
+  { name: 'UI/UX Design', level: 78 },
+]
+
+const otherTech = ['Git', 'Docker', 'REST API', 'GraphQL', 'Vercel', 'RGPD', 'SEO', 'Figma']
+
+const stats = [
+  { value: '6+', label: 'Projets livrés' },
+  { value: '3', label: 'Ans d\'expérience' },
+  { value: '100%', label: 'Remote-ready' },
+]
+</script>
