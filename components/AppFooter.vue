@@ -1,5 +1,5 @@
 <template>
-  <footer class="dark:bg-dark-bg bg-white dark:border-dark-border border-gray-100 border-t py-10">
+  <footer class="dark:bg-[rgba(6,6,12,0.6)] bg-white dark:border-[rgba(255,255,255,0.06)] border-gray-100 border-t py-10 backdrop-blur-xl">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <!-- Logo + copyright -->
       <div class="flex items-center gap-3">
@@ -27,9 +27,9 @@
           aria-label="LinkedIn">
           LinkedIn
         </a>
-        <a href="mailto:nico39320@gmail.com"
+        <a href="#contact"
           class="dark:text-gray-400 text-gray-500 dark:hover:text-white hover:text-navy-900 text-sm transition-colors">
-          Email
+          Contact
         </a>
       </div>
     </div>

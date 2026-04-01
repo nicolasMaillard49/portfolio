@@ -2,13 +2,13 @@
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="scrolled
-      ? 'dark:bg-dark-bg/90 bg-white/90 backdrop-blur-xl dark:border-dark-border border-gray-100 border-b shadow-sm'
+      ? 'dark:bg-[rgba(6,6,12,0.7)] bg-white/80 backdrop-blur-2xl dark:border-[rgba(255,255,255,0.06)] border-gray-100 border-b shadow-glass'
       : 'bg-transparent border-transparent border-b'"
   >
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" @click.prevent="scrollTo('hero')" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg bg-electric-500 flex items-center justify-center shadow-glow-blue-sm group-hover:shadow-glow-blue transition-shadow duration-300">
+        <div class="w-8 h-8 rounded-lg bg-electric-500 dark:bg-electric-500 flex items-center justify-center shadow-glow-blue-sm group-hover:shadow-glow-blue transition-shadow duration-300">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
             <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
@@ -56,7 +56,7 @@
         <a
           href="#contact"
           @click.prevent="scrollTo('contact')"
-          class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-electric-500 hover:bg-electric-600 text-white text-sm font-medium transition-all duration-200 shadow-glow-blue-sm hover:shadow-glow-blue btn-ripple"
+          class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-electric-500 dark:bg-electric-500 hover:bg-electric-600 text-white text-sm font-medium transition-all duration-200 shadow-glow-blue-sm hover:shadow-glow-blue btn-ripple"
           @click="createRipple"
         >
           Me contacter
@@ -78,7 +78,7 @@
 
     <!-- Mobile menu -->
     <Transition name="slide-down">
-      <div v-if="menuOpen" class="md:hidden dark:bg-dark-bg bg-white border-t dark:border-dark-border border-gray-100 px-6 py-4 flex flex-col gap-4">
+      <div v-if="menuOpen" class="md:hidden dark:bg-[rgba(6,6,12,0.9)] bg-white backdrop-blur-2xl border-t dark:border-[rgba(255,255,255,0.06)] border-gray-100 px-6 py-4 flex flex-col gap-4">
         <a
           v-for="link in navLinks"
           :key="link.id"
@@ -92,7 +92,7 @@
         <a
           href="#contact"
           @click.prevent="scrollTo('contact'); menuOpen = false"
-          class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-electric-500 hover:bg-electric-600 text-white text-sm font-medium transition-colors"
+          class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-electric-500 dark:bg-electric-500 hover:bg-electric-600 text-white text-sm font-medium transition-colors"
         >
           Me contacter
         </a>

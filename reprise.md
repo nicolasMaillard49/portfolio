@@ -2,17 +2,17 @@
 
 ## Bloquants
 
-- [ ] **OG Image** — Ouvrir `scripts/generate-og-image.html` dans le navigateur, screenshot 1200x630 et sauvegarder en `public/og-image.png`
-- [ ] **Formulaire de contact** — Brancher sur un vrai service (Formspree, EmailJS ou Resend). Actuellement le formulaire ouvre juste un `mailto:` (`SectionContact.vue:142`)
-- [ ] **Installer le module sitemap** — `npm install @nuxtjs/sitemap --save-dev` (échoue à cause du PATH nvm4w, voir section PATH ci-dessous)
-- [ ] **Favicon.ico** — Générer un `public/favicon.ico` (32x32) à partir de `public/favicon.svg`
+- [x] **OG Image** — Screenshot 1200x630 sauvegardé en `public/og-image.png`
+- [x] **Formulaire de contact** — Branché sur Formspree (fetch API). `SectionContact.vue` — **TODO: remplacer `xyzgobkl` par ton vrai ID Formspree**
+- [x] **Installer le module sitemap** — Installé via `nuxt`
+- [x] **Favicon.ico** — Généré via `scripts/generate-favicon.mjs` (sharp)
 
 ## Recommandé
 
-- [ ] **Formulaire de contact : choix du service** — Décider entre Formspree (simple, gratuit), EmailJS (côté client) ou Resend (API, plus pro)
+- [x] **Formulaire de contact : choix du service** — Formspree choisi (simple, gratuit)
 - [ ] **Screenshots projets** — Remplacer la dépendance Microlink API (rate limits, lent) par des screenshots statiques dans `public/`
-- [ ] **Email exposé** — `nico39320@gmail.com` est en clair dans le code, les bots vont le scraper. Envisager un formulaire backend à la place du mailto
-- [ ] **Design global** — 3 directions proposées (Editorial Bordelais, Néo-Brutalist, Glassmorphism Nocturne), choix à faire
+- [x] **Email exposé** — Email supprimé partout (Contact, Footer, nuxt.config structured data). Remplacé par formulaire Formspree
+- [x] **Design global** — Glassmorphism Nocturne appliqué (palette indigo/violet, glass-card, backdrop-blur, reflets)
 
 ## Problème PATH nvm4w
 

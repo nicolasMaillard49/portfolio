@@ -3,15 +3,16 @@
     <!-- Mesh background -->
     <div class="absolute inset-0 dark:bg-mesh-dark bg-mesh-light pointer-events-none" />
 
-    <!-- Floating accent orbs -->
-    <div class="absolute top-1/4 right-[15%] w-64 h-64 rounded-full bg-electric-500/5 blur-3xl pointer-events-none animate-float" />
-    <div class="absolute bottom-1/4 left-[10%] w-48 h-48 rounded-full bg-electric-400/4 blur-3xl pointer-events-none" style="animation: float 8s ease-in-out infinite reverse;" />
+    <!-- Floating accent orbs (parallax) -->
+    <div class="absolute top-1/4 right-[15%] w-72 h-72 rounded-full bg-electric-500/10 blur-[100px] pointer-events-none animate-float" :style="orbStyle1" />
+    <div class="absolute bottom-1/4 left-[10%] w-56 h-56 rounded-full bg-accent-violet/8 blur-[80px] pointer-events-none" :style="orbStyle2" />
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-accent-cyan/[0.03] blur-[120px] pointer-events-none" :style="orbStyle3" />
 
     <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
       <!-- Left: Text content -->
       <div class="space-y-8">
         <!-- Status badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full dark:bg-electric-500/10 bg-electric-500/8 dark:border-electric-500/20 border-electric-500/20 border text-xs font-medium dark:text-electric-400 text-electric-600 animate-fade-in">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full dark:bg-[rgba(99,102,241,0.08)] bg-electric-500/8 dark:border-[rgba(99,102,241,0.2)] border-electric-500/20 border dark:backdrop-blur-xl text-xs font-medium dark:text-electric-400 text-electric-600 animate-fade-in">
           <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
           Disponible pour des projets
         </div>
@@ -36,7 +37,7 @@
         </p>
 
         <!-- Stack badges -->
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 stagger-children">
           <span v-for="tech in stack" :key="tech" class="tech-tag">{{ tech }}</span>
         </div>
 
@@ -56,7 +57,7 @@
           <a
             href="#contact"
             @click.prevent="scrollTo('contact')"
-            class="btn-ripple flex items-center gap-2 px-6 py-3 rounded-xl dark:bg-dark-card bg-gray-100 dark:hover:bg-dark-border hover:bg-gray-200 dark:text-white text-navy-900 font-medium text-sm transition-all duration-200 dark:border-dark-border border-gray-200 border"
+            class="btn-ripple flex items-center gap-2 px-6 py-3 rounded-xl glass-card dark:text-white text-navy-900 font-medium text-sm transition-all duration-200 hover:bg-[rgba(255,255,255,0.08)]"
             @click="createRipple"
           >
             Me contacter
@@ -92,10 +93,10 @@
 
         <!-- Avatar circle -->
         <div class="relative z-10 animate-float">
-          <div class="w-64 h-64 rounded-2xl dark:bg-dark-card bg-gray-100 dark:border-dark-border border-gray-200 border-2 flex items-center justify-center overflow-hidden shadow-card-dark">
+          <div class="w-64 h-64 rounded-2xl glass-card overflow-hidden shadow-glass">
             <!-- Placeholder avatar -->
-            <div class="w-full h-full flex flex-col items-center justify-center dark:bg-gradient-to-br from-navy-900 to-navy-700 bg-gradient-to-br from-gray-100 to-gray-200">
-              <div class="w-24 h-24 rounded-full bg-electric-500/20 border-2 border-electric-500/30 flex items-center justify-center mb-3">
+            <div class="w-full h-full flex flex-col items-center justify-center dark:bg-gradient-to-br from-[rgba(99,102,241,0.08)] to-[rgba(167,139,250,0.04)] bg-gradient-to-br from-gray-100 to-gray-200">
+              <div class="w-24 h-24 rounded-full bg-electric-500/15 border-2 border-electric-500/25 flex items-center justify-center mb-3 backdrop-blur-sm">
                 <span class="font-display font-bold text-electric-400 text-3xl">NM</span>
               </div>
               <span class="dark:text-gray-400 text-gray-500 text-xs">Nicolas Maillard</span>
@@ -103,7 +104,7 @@
           </div>
 
           <!-- Floating badge: studi -->
-          <div class="absolute -bottom-4 -left-6 dark:bg-dark-card bg-white dark:border-dark-border border-gray-200 border rounded-xl px-3 py-2 shadow-card-dark flex items-center gap-2">
+          <div class="absolute -bottom-4 -left-6 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
             <div class="w-7 h-7 rounded-lg bg-electric-500/15 flex items-center justify-center">
               <svg class="w-4 h-4 text-electric-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
@@ -116,7 +117,7 @@
           </div>
 
           <!-- Floating badge: agency -->
-          <div class="absolute -top-4 -right-6 dark:bg-dark-card bg-white dark:border-dark-border border-gray-200 border rounded-xl px-3 py-2 shadow-card-dark flex items-center gap-2">
+          <div class="absolute -top-4 -right-6 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
             <div class="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center">
               <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -132,17 +133,26 @@
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-      <span class="dark:text-gray-600 text-gray-400 text-xs">Scroll</span>
-      <svg class="w-4 h-4 dark:text-gray-600 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <button
+      @click="scrollTo('about')"
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer group"
+      aria-label="Défiler vers la section À propos"
+    >
+      <span class="dark:text-gray-600 text-gray-400 text-xs group-hover:text-electric-400 transition-colors">Scroll</span>
+      <svg class="w-4 h-4 dark:text-gray-600 text-gray-400 group-hover:text-electric-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
       </svg>
-    </div>
+    </button>
   </section>
 </template>
 
 <script setup lang="ts">
 const { createRipple } = useRipple()
+const { init: initParallax, parallaxStyle } = useParallax()
+
+const orbStyle1 = parallaxStyle(25)
+const orbStyle2 = parallaxStyle(-18)
+const orbStyle3 = parallaxStyle(12)
 
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -175,5 +185,8 @@ const typeEffect = () => {
   setTimeout(typeEffect, deleting ? 45 : 80)
 }
 
-onMounted(() => setTimeout(typeEffect, 600))
+onMounted(() => {
+  setTimeout(typeEffect, 600)
+  initParallax()
+})
 </script>

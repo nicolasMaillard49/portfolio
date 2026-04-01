@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="py-24 relative dark:bg-dark-surface/40 bg-gray-50/60">
+  <section id="projects" class="py-24 relative dark:bg-[rgba(12,12,22,0.5)] bg-gray-50/60">
     <div class="max-w-6xl mx-auto px-6">
       <!-- Header -->
       <div class="mb-12 reveal">
@@ -30,19 +30,21 @@
           class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200"
           :class="activeFilter === filter
             ? 'bg-electric-500 text-white shadow-glow-blue-sm'
-            : 'dark:bg-dark-card bg-white dark:text-gray-400 text-gray-600 dark:border-dark-border border-gray-200 border dark:hover:text-white hover:text-navy-900'"
+            : 'glass-card dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-navy-900'"
         >
           {{ filter }}
         </button>
       </div>
 
       <!-- Grid -->
-        <TransitionGroup name="project-grid" tag="div" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <TransitionGroup name="project-grid" tag="div" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           <div
             v-for="(project, i) in filteredProjects"
             :key="project.id"
-            class="reveal card-lift dark:bg-dark-card bg-white dark:border-dark-border border-gray-200 border rounded-2xl overflow-hidden group shadow-card-dark dark:hover:shadow-card-dark-hover hover:shadow-card-light-hover"
-            :class="`reveal-delay-${Math.min(i + 1, 5)}`"
+            class="tilt-card glass-card rounded-2xl overflow-hidden group shadow-glass dark:hover:shadow-glass-hover hover:shadow-card-light-hover"
+            :style="{ animationDelay: `${i * 60}ms` }"
+            @mousemove="onMouseMove"
+            @mouseleave="onMouseLeave"
           >
             <!-- Screenshot preview -->
             <div class="relative h-44 overflow-hidden bg-gray-900">
@@ -94,7 +96,7 @@
                 <h3 class="font-display font-semibold dark:text-white text-navy-900 text-base leading-snug group-hover:text-electric-400 transition-colors">
                   {{ project.title }}
                 </h3>
-                <span class="shrink-0 text-[10px] dark:bg-dark-border bg-gray-100 dark:text-gray-400 text-gray-500 px-2 py-0.5 rounded-full">
+                <span class="shrink-0 text-[10px] dark:bg-[rgba(255,255,255,0.06)] bg-gray-100 dark:text-gray-400 text-gray-500 px-2 py-0.5 rounded-full">
                   {{ project.type }}
                 </span>
               </div>
@@ -136,6 +138,7 @@
 </template>
 
 <script setup lang="ts">
+const { onMouseMove, onMouseLeave } = useTilt()
 const activeFilter = ref('Tous')
 
 const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce', 'WordPress']
@@ -318,10 +321,10 @@ const filteredProjects = computed(() => {
 </script>
 
 <style scoped>
-.project-grid-move { transition: all 0.35s ease; }
-.project-grid-enter-active { transition: all 0.35s ease; }
-.project-grid-leave-active { transition: all 0.2s ease; position: absolute; }
-.project-grid-enter-from { opacity: 0; transform: scale(0.95) translateY(10px); }
-.project-grid-leave-to { opacity: 0; transform: scale(0.95); }
+.project-grid-move { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.project-grid-enter-active { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.project-grid-leave-active { transition: all 0.25s ease; position: absolute; opacity: 0; }
+.project-grid-enter-from { opacity: 0; transform: translateY(16px) scale(0.96); }
+.project-grid-leave-to { opacity: 0; transform: scale(0.96); }
 .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 </style>

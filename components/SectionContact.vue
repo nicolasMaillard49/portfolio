@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="py-24 relative dark:bg-dark-surface/40 bg-gray-50/60">
+  <section id="contact" class="py-24 relative dark:bg-[rgba(12,12,22,0.5)] bg-gray-50/60">
     <div class="max-w-4xl mx-auto px-6">
       <!-- Header -->
       <div class="text-center mb-14 reveal">
@@ -19,7 +19,7 @@
           <div
             v-for="info in contactInfo"
             :key="info.label"
-            class="flex items-start gap-4 dark:bg-dark-card bg-white dark:border-dark-border border-gray-200 border rounded-xl p-4 shadow-card-dark card-lift"
+            class="flex items-start gap-4 glass-card rounded-xl p-4 shadow-glass card-lift"
           >
             <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
               :style="`background: ${info.color}`">
@@ -41,7 +41,7 @@
           </div>
 
           <!-- Availability info -->
-          <div class="dark:bg-dark-card bg-white dark:border-electric-500/20 border-electric-500/20 border-2 rounded-xl p-5 shadow-card-dark">
+          <div class="glass-strong dark:border-electric-500/20 border-electric-500/20 border-2 rounded-xl p-5 shadow-glass">
             <div class="flex items-center gap-2 mb-3">
               <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               <span class="dark:text-gray-300 text-gray-600 text-xs font-medium">Disponible pour de nouveaux projets</span>
@@ -54,7 +54,7 @@
 
         <!-- Right: Form -->
         <div class="reveal reveal-delay-2">
-          <form @submit.prevent="handleSubmit" class="dark:bg-dark-card bg-white dark:border-dark-border border-gray-200 border rounded-2xl p-6 shadow-card-dark space-y-4">
+          <form @submit.prevent="handleSubmit" class="glass-card rounded-2xl p-6 shadow-glass space-y-4">
             <div class="space-y-1.5">
               <label for="contact-name" class="dark:text-gray-300 text-gray-700 text-sm font-medium">Nom</label>
               <input
@@ -64,7 +64,7 @@
                 autocomplete="name"
                 placeholder="Votre nom"
                 required
-                class="w-full px-4 py-2.5 rounded-xl text-sm dark:bg-dark-bg bg-gray-50 dark:border-dark-border border-gray-200 border dark:text-white text-gray-900 dark:placeholder-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-electric-500/50 transition-all"
+                class="w-full px-4 py-2.5 rounded-xl text-sm glass-input dark:text-white text-gray-900 dark:placeholder-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-electric-500/40 transition-all"
               />
             </div>
             <div class="space-y-1.5">
@@ -76,7 +76,7 @@
                 autocomplete="email"
                 placeholder="votre@email.com"
                 required
-                class="w-full px-4 py-2.5 rounded-xl text-sm dark:bg-dark-bg bg-gray-50 dark:border-dark-border border-gray-200 border dark:text-white text-gray-900 dark:placeholder-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-electric-500/50 transition-all"
+                class="w-full px-4 py-2.5 rounded-xl text-sm glass-input dark:text-white text-gray-900 dark:placeholder-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-electric-500/40 transition-all"
               />
             </div>
             <div class="space-y-1.5">
@@ -84,7 +84,7 @@
               <select
                 id="contact-subject"
                 v-model="form.subject"
-                class="w-full px-4 py-2.5 rounded-xl text-sm dark:bg-dark-bg bg-gray-50 dark:border-dark-border border-gray-200 border dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-electric-500/50 transition-all"
+                class="w-full px-4 py-2.5 rounded-xl text-sm glass-input dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-electric-500/40 transition-all"
               >
                 <option value="">Sélectionner...</option>
                 <option value="vitrine">Site Vitrine</option>
@@ -101,7 +101,7 @@
                 rows="4"
                 placeholder="Décrivez votre projet..."
                 required
-                class="w-full px-4 py-2.5 rounded-xl text-sm dark:bg-dark-bg bg-gray-50 dark:border-dark-border border-gray-200 border dark:text-white text-gray-900 dark:placeholder-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-electric-500/50 transition-all resize-none"
+                class="w-full px-4 py-2.5 rounded-xl text-sm glass-input dark:text-white text-gray-900 dark:placeholder-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-electric-500/40 transition-all resize-none"
               />
             </div>
 
@@ -120,6 +120,9 @@
               <svg v-else class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
               {{ sent ? 'Message envoyé !' : sending ? 'Envoi...' : 'Envoyer le message' }}
             </button>
+            <p v-if="error" class="text-red-400 text-xs text-center">
+              Une erreur est survenue. Veuillez réessayer.
+            </p>
             <p class="dark:text-gray-500 text-gray-400 text-xs text-center">
               En envoyant ce message, vos données seront uniquement utilisées pour vous répondre.
             </p>
@@ -137,30 +140,36 @@ const form = reactive({ name: '', email: '', subject: '', message: '' })
 const sending = ref(false)
 const sent = ref(false)
 
-const handleSubmit = () => {
+const FORMSPREE_ID = 'xyzgobkl' // TODO: remplacer par ton vrai ID Formspree (formspree.io)
+const error = ref(false)
+
+const handleSubmit = async () => {
   sending.value = true
-  // Simulate submission — in production, hook to a real service (e.g. Resend, Formspree)
-  setTimeout(() => {
-    sending.value = false
+  error.value = false
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+      }),
+    })
+    if (!res.ok) throw new Error('Erreur envoi')
     sent.value = true
-    const mailtoUrl = `mailto:nico39320@gmail.com?subject=${encodeURIComponent(form.subject || 'Contact Portfolio')}&body=${encodeURIComponent(`Nom: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`
-    window.location.href = mailtoUrl
-    setTimeout(() => {
-      sent.value = false
-      Object.assign(form, { name: '', email: '', subject: '', message: '' })
-    }, 3000)
-  }, 800)
+    Object.assign(form, { name: '', email: '', subject: '', message: '' })
+    setTimeout(() => { sent.value = false }, 4000)
+  } catch {
+    error.value = true
+    setTimeout(() => { error.value = false }, 4000)
+  } finally {
+    sending.value = false
+  }
 }
 
 const contactInfo = [
-  {
-    label: 'Email',
-    value: 'nico39320@gmail.com',
-    href: 'mailto:nico39320@gmail.com',
-    external: false,
-    color: 'linear-gradient(135deg, #3B82F6, #2563EB)',
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>',
-  },
   {
     label: 'GitHub',
     value: 'github.com/nicolasMaillard49',

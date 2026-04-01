@@ -8,7 +8,11 @@
       "Bash(npm install:*)",
       "Bash(where node:*)",
       "Bash(echo $PATH)",
-      "Bash(npm --version)"
+      "Bash(npm --version)",
+      "Bash(npm list:*)",
+      "Bash(export PATH=\"/c/nvm4w/nodejs:$PATH\")",
+      "Bash(node scripts/generate-favicon.mjs)",
+      "Bash(npx nuxi:*)"
     ]
   }
 }

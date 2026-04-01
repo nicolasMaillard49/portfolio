@@ -26,7 +26,7 @@
           </div>
 
           <!-- Freelance card -->
-          <div class="reveal reveal-delay-2 dark:bg-dark-card bg-gray-50 dark:border-dark-border border-gray-200 border rounded-2xl p-5 flex items-start gap-4 shadow-card-dark">
+          <div class="reveal reveal-delay-2 glass-card rounded-2xl p-5 flex items-start gap-4 shadow-glass">
             <div class="w-10 h-10 rounded-xl bg-electric-500/15 flex items-center justify-center shrink-0">
               <svg class="w-5 h-5 text-electric-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
@@ -46,7 +46,7 @@
 
           <!-- Stats -->
           <div class="reveal reveal-delay-3 grid grid-cols-3 gap-4">
-            <div v-for="stat in stats" :key="stat.label" class="dark:bg-dark-card bg-gray-50 dark:border-dark-border border-gray-200 border rounded-xl p-4 text-center">
+            <div v-for="stat in stats" :key="stat.label" class="glass-card rounded-xl p-4 text-center">
               <p class="font-display font-bold text-2xl dark:text-white text-navy-900">{{ stat.value }}</p>
               <p class="dark:text-gray-400 text-gray-500 text-xs mt-0.5">{{ stat.label }}</p>
             </div>
@@ -62,7 +62,7 @@
                 <span class="dark:text-gray-200 text-gray-700 text-sm font-medium">{{ skill.name }}</span>
                 <span class="dark:text-gray-400 text-gray-500 text-xs">{{ skill.level }}%</span>
               </div>
-              <div class="h-1.5 dark:bg-dark-border bg-gray-200 rounded-full overflow-hidden">
+              <div class="h-1.5 dark:bg-[rgba(255,255,255,0.06)] bg-gray-200 rounded-full overflow-hidden">
                 <div class="skill-bar-fill" :data-width="skill.level" />
               </div>
             </div>

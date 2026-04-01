@@ -18,7 +18,9 @@
         <div
           v-for="(service, i) in services"
           :key="service.title"
-          class="reveal card-lift dark:bg-dark-card bg-white dark:border-dark-border border-gray-200 border rounded-2xl p-6 space-y-4 shadow-card-dark dark:hover:shadow-card-dark-hover hover:shadow-card-light-hover group"
+          class="reveal tilt-card glass-card rounded-2xl p-6 space-y-4 shadow-glass dark:hover:shadow-glass-hover hover:shadow-card-light-hover group"
+          @mousemove="onMouseMove"
+          @mouseleave="onMouseLeave"
           :class="`reveal-delay-${i + 1}`"
         >
           <!-- Icon -->
@@ -44,9 +46,10 @@
       </div>
 
       <!-- CTA banner -->
-      <div class="reveal dark:bg-gradient-to-r from-navy-900 to-navy-700 bg-gradient-to-r from-navy-900 to-navy-700 rounded-2xl p-8 md:p-10 relative overflow-hidden">
+      <div class="reveal glass-strong rounded-2xl p-8 md:p-10 relative overflow-hidden dark:bg-gradient-to-r dark:from-[rgba(99,102,241,0.08)] dark:to-[rgba(167,139,250,0.04)] bg-gradient-to-r from-navy-900 to-navy-700">
         <!-- Background glow -->
-        <div class="absolute right-0 top-0 w-64 h-64 rounded-full bg-electric-500/15 blur-3xl pointer-events-none" />
+        <div class="absolute right-0 top-0 w-64 h-64 rounded-full bg-electric-500/10 blur-[80px] pointer-events-none" />
+        <div class="absolute left-0 bottom-0 w-48 h-48 rounded-full bg-accent-violet/8 blur-[60px] pointer-events-none" />
 
         <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div class="space-y-3">
@@ -85,6 +88,8 @@
 </template>
 
 <script setup lang="ts">
+const { onMouseMove, onMouseLeave } = useTilt()
+
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }

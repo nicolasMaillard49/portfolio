@@ -31,7 +31,7 @@ export default defineNuxtConfig({
           content:
             'Nicolas Maillard, développeur web full-stack basé à Bordeaux. Spécialisé Vue.js, Nuxt, TypeScript, NestJS. Création de sites vitrine, e-commerce et systèmes de réservation.',
         },
-        { name: 'theme-color', content: '#3B82F6' },
+        { name: 'theme-color', content: '#6366F1' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'fr_FR' },
         {
@@ -80,7 +80,6 @@ export default defineNuxtConfig({
             name: 'Nicolas Maillard',
             jobTitle: 'Développeur Web Full-Stack',
             url: 'https://nicolasmaillard.dev',
-            email: 'nico39320@gmail.com',
             sameAs: ['https://github.com/nicolasMaillard49'],
             address: {
               '@type': 'PostalAddress',
