@@ -22,9 +22,10 @@
           aria-label="GitHub">
           GitHub
         </a>
-        <a href="https://purewebagency.com" target="_blank" rel="noopener"
-          class="dark:text-gray-400 text-gray-500 dark:hover:text-white hover:text-navy-900 text-sm transition-colors">
-          Pure Web Agency
+        <a href="https://www.linkedin.com/in/nicolas-maillard-dev/" target="_blank" rel="noopener"
+          class="dark:text-gray-400 text-gray-500 dark:hover:text-white hover:text-navy-900 text-sm transition-colors"
+          aria-label="LinkedIn">
+          LinkedIn
         </a>
         <a href="mailto:nico39320@gmail.com"
           class="dark:text-gray-400 text-gray-500 dark:hover:text-white hover:text-navy-900 text-sm transition-colors">

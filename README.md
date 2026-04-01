@@ -1,7 +1,7 @@
 # 🚀 Portfolio — Nicolas Maillard
 
 > Développeur Web Full-Stack · Bordeaux, France  
-> Fondateur de [Pure Web Agency](https://purewebagency.com)
+> Freelance basé à Bordeaux
 
 Portfolio personnel ultra-moderne construit avec **Nuxt 3 + Vue 3 + TypeScript + TailwindCSS**.
 
@@ -87,7 +87,7 @@ portfolio-nicolas/
 │   ├── SectionHero.vue        # Hero : typewriter, floating badges
 │   ├── SectionAbout.vue       # À propos : bio, skill bars, stats
 │   ├── SectionProjects.vue    # Projets : grid filtrable
-│   ├── SectionServices.vue    # Services + Pure Web Agency CTA
+│   ├── SectionServices.vue    # Services + CTA freelance
 │   └── SectionContact.vue     # Formulaire + infos contact
 ├── composables/
 │   ├── useScrollReveal.ts     # IntersectionObserver pour animations scroll
@@ -125,7 +125,7 @@ portfolio-nicolas/
 
 - **Email** : nico39320@gmail.com
 - **GitHub** : [nicolasMaillard49](https://github.com/nicolasMaillard49)
-- **Agence** : [purewebagency.com](https://purewebagency.com)
+- **LinkedIn** : [nicolas-maillard-dev](https://www.linkedin.com/in/nicolas-maillard-dev/)
 
 ---
 

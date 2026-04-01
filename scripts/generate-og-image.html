@@ -1,0 +1,65 @@
+<!--
+  Open this file in a browser, right-click the image and "Save as" og-image.png (1200x630)
+  Then place it in public/og-image.png
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #333; }
+    .og {
+      width: 1200px; height: 630px;
+      background: linear-gradient(135deg, #0A0A0A 0%, #111111 50%, #0F2044 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      position: relative; overflow: hidden;
+    }
+    .og::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+      top: -100px; right: -50px;
+    }
+    .og::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(96,165,250,0.1) 0%, transparent 70%);
+      bottom: -80px; left: -30px;
+    }
+    .content { position: relative; z-index: 1; text-align: left; padding: 80px; }
+    .name { color: #fff; font-size: 64px; font-weight: 700; margin: 0 0 12px 0; }
+    .name span { background: linear-gradient(135deg, #3B82F6, #60A5FA, #93C5FD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .role { color: #9CA3AF; font-size: 28px; font-weight: 400; margin: 0 0 32px 0; }
+    .tags { display: flex; gap: 12px; }
+    .tag {
+      padding: 8px 20px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 999px;
+      color: #93C5FD;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .location { color: #6B7280; font-size: 20px; margin-top: 32px; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="og">
+    <div class="content">
+      <h1 class="name">Nicolas <span>Maillard</span></h1>
+      <p class="role">Developpeur Web Full-Stack</p>
+      <div class="tags">
+        <span class="tag">Vue.js</span>
+        <span class="tag">Nuxt</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">NestJS</span>
+      </div>
+      <p class="location">Bordeaux, France</p>
+    </div>
+  </div>
+</body>
+</html>

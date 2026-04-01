@@ -18,33 +18,28 @@
               Je suis <strong class="dark:text-white text-navy-900 font-semibold">Nicolas Maillard</strong>, développeur web full-stack basé à Bordeaux, actuellement en Bachelor Développement Web chez <strong class="dark:text-white text-navy-900 font-semibold">Studi.fr</strong>.
             </p>
             <p>
-              Passionné par la création d'interfaces modernes et de systèmes robustes, j'ai fondé
-              <a href="https://purewebagency.com" target="_blank" rel="noopener" class="dark:text-electric-400 text-electric-600 font-medium hover:underline inline-flex items-center gap-1">
-                Pure Web Agency
-                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
-              — une agence web spécialisée dans la création de sites <strong class="dark:text-white text-navy-900 font-semibold">modernes et performants</strong>, avec hébergement en France et conformité RGPD totale.
+              Passionné par la création d'interfaces modernes et de systèmes robustes, je conçois des sites web <strong class="dark:text-white text-navy-900 font-semibold">modernes et performants</strong>, avec une attention particulière portée à l'expérience utilisateur et aux bonnes pratiques.
             </p>
             <p>
               Ma philosophie : <em class="dark:text-gray-200 text-navy-800">"valoriser le savoir-faire français"</em> à travers des produits web qui allient esthétique, performance et accessibilité.
             </p>
           </div>
 
-          <!-- Pure Web Agency card -->
+          <!-- Freelance card -->
           <div class="reveal reveal-delay-2 dark:bg-dark-card bg-gray-50 dark:border-dark-border border-gray-200 border rounded-2xl p-5 flex items-start gap-4 shadow-card-dark">
             <div class="w-10 h-10 rounded-xl bg-electric-500/15 flex items-center justify-center shrink-0">
               <svg class="w-5 h-5 text-electric-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
               </svg>
             </div>
             <div>
-              <h3 class="font-display font-semibold dark:text-white text-navy-900 mb-1">Pure Web Agency</h3>
+              <h3 class="font-display font-semibold dark:text-white text-navy-900 mb-1">Freelance</h3>
               <p class="dark:text-gray-400 text-gray-500 text-sm leading-relaxed">
-                Agence web fondée par Nicolas. Sites modernes &amp; performants, hébergement 🇫🇷, conformité RGPD.
+                Disponible pour vos projets web. Sites vitrines, e-commerce, applications sur mesure.
               </p>
-              <a href="https://purewebagency.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 mt-2 text-xs text-electric-400 hover:text-electric-300 font-medium transition-colors">
-                purewebagency.com
-                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              <a href="#contact" class="inline-flex items-center gap-1 mt-2 text-xs text-electric-400 hover:text-electric-300 font-medium transition-colors">
+                Me contacter
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
             </div>
           </div>

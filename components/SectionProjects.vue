@@ -37,8 +37,7 @@
       </div>
 
       <!-- Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <TransitionGroup name="project-grid">
+        <TransitionGroup name="project-grid" tag="div" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
             v-for="(project, i) in filteredProjects"
             :key="project.id"
@@ -132,7 +131,6 @@
             </div>
           </div>
         </TransitionGroup>
-      </div>
     </div>
   </section>
 </template>
@@ -149,8 +147,8 @@ const projects = [
   {
     id: 'purewebagency',
     title: 'Pure Web Agency',
-    description: 'Site officiel de mon agence web. Présentation des services, hébergement France, conformité RGPD. Vitrine moderne construite avec Nuxt 3.',
-    type: 'Agence Web',
+    description: 'Site vitrine pour une agence web. Présentation des services, hébergement France, conformité RGPD. Construit avec Nuxt 3.',
+    type: 'Site Vitrine',
     tech: ['Nuxt 3', 'TypeScript', 'TailwindCSS'],
     github: 'https://github.com/nicolasMaillard49/purewebagency-nuxt',
     url: 'https://purewebagency.com',
@@ -222,6 +220,36 @@ const projects = [
     icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>',
   },
   {
+    id: 'restaurants-bordeaux',
+    title: 'Restaurants Bordeaux',
+    description: 'Annuaire des meilleurs restaurants de Bordeaux. Recherche par quartier, type de cuisine, avis clients. Design moderne et responsive.',
+    type: 'Application Web',
+    tech: ['Nuxt', 'TailwindCSS', 'SEO'],
+    github: null,
+    url: 'https://www.restaurants-bordeaux.com/',
+    screenshot: screenshot('https://www.restaurants-bordeaux.com/'),
+    live: true,
+    featured: true,
+    gradient: ['#B45309', '#78350F'],
+    tags: ['Nuxt'],
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+  },
+  {
+    id: 'clipbag',
+    title: 'ClipBag Shop',
+    description: 'E-commerce pour un sac magnétique innovant destiné aux sportifs. Paiement sécurisé Stripe, backend sur Railway. Application sur-mesure Nuxt.',
+    type: 'E-commerce',
+    tech: ['Nuxt', 'Stripe', 'TailwindCSS'],
+    github: null,
+    url: 'https://clipbag.shop',
+    screenshot: screenshot('https://clipbag.shop'),
+    live: true,
+    featured: true,
+    gradient: ['#0F766E', '#134E4A'],
+    tags: ['Nuxt', 'E-commerce'],
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>',
+  },
+  {
     id: 'salon-booking',
     title: 'Salon Booking',
     description: 'Système de réservation complet pour salon de coiffure. Gestion des créneaux, profils clients, notifications, backend NestJS + Prisma.',
@@ -290,8 +318,9 @@ const filteredProjects = computed(() => {
 </script>
 
 <style scoped>
+.project-grid-move { transition: all 0.35s ease; }
 .project-grid-enter-active { transition: all 0.35s ease; }
-.project-grid-leave-active { transition: all 0.2s ease; }
+.project-grid-leave-active { transition: all 0.2s ease; position: absolute; }
 .project-grid-enter-from { opacity: 0; transform: scale(0.95) translateY(10px); }
 .project-grid-leave-to { opacity: 0; transform: scale(0.95); }
 .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

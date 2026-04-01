@@ -9,7 +9,7 @@
           Ce que je propose
         </h2>
         <p class="dark:text-gray-400 text-gray-500 mt-4 max-w-xl text-base leading-relaxed">
-          À travers <a href="https://purewebagency.com" target="_blank" rel="noopener" class="dark:text-electric-400 text-electric-600 hover:underline font-medium">Pure Web Agency</a>, je crée des produits web qui allient esthétique, performance et respect de vos utilisateurs.
+          Je crée des produits web qui allient esthétique, performance et respect de vos utilisateurs.
         </p>
       </div>
 
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <!-- Pure Web Agency CTA banner -->
+      <!-- CTA banner -->
       <div class="reveal dark:bg-gradient-to-r from-navy-900 to-navy-700 bg-gradient-to-r from-navy-900 to-navy-700 rounded-2xl p-8 md:p-10 relative overflow-hidden">
         <!-- Background glow -->
         <div class="absolute right-0 top-0 w-64 h-64 rounded-full bg-electric-500/15 blur-3xl pointer-events-none" />
@@ -56,34 +56,26 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                 </svg>
               </div>
-              <span class="text-xs font-semibold text-electric-400 uppercase tracking-widest">Pure Web Agency</span>
+              <span class="text-xs font-semibold text-electric-400 uppercase tracking-widest">Freelance</span>
             </div>
             <h3 class="font-display font-bold text-white text-2xl leading-tight">
               Vous avez un projet web ?
             </h3>
             <p class="text-gray-300 text-sm leading-relaxed max-w-md">
-              Hébergement en France 🇫🇷, conformité RGPD, performances optimales. Je valorise le savoir-faire local à travers des sites modernes et durables.
+              Performances optimales, design soigné, code maintenable. Je crée des sites modernes et durables adaptés à vos besoins.
             </p>
             <div class="flex flex-wrap gap-3 pt-1">
-              <span v-for="tag in agencyTags" :key="tag" class="px-3 py-1 bg-white/10 text-white/80 rounded-full text-xs font-medium">{{ tag }}</span>
+              <span v-for="tag in ctaTags" :key="tag" class="px-3 py-1 bg-white/10 text-white/80 rounded-full text-xs font-medium">{{ tag }}</span>
             </div>
           </div>
-          <div class="flex flex-col gap-3 shrink-0">
-            <a
-              href="https://purewebagency.com"
-              target="_blank"
-              rel="noopener"
-              class="btn-ripple flex items-center gap-2 px-6 py-3 rounded-xl bg-electric-500 hover:bg-electric-600 text-white font-medium text-sm transition-all shadow-glow-blue-sm hover:shadow-glow-blue whitespace-nowrap"
-            >
-              Découvrir l'agence
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
+          <div class="shrink-0">
             <a
               href="#contact"
               @click.prevent="scrollTo('contact')"
-              class="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm transition-all whitespace-nowrap"
+              class="btn-ripple flex items-center gap-2 px-6 py-3 rounded-xl bg-electric-500 hover:bg-electric-600 text-white font-medium text-sm transition-all shadow-glow-blue-sm hover:shadow-glow-blue whitespace-nowrap"
             >
               Demander un devis
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
           </div>
         </div>
@@ -97,7 +89,7 @@ const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-const agencyTags = ['Hébergement 🇫🇷', 'RGPD', 'Performance', 'SEO', 'Responsive']
+const ctaTags = ['Vue.js / Nuxt', 'Performance', 'SEO', 'Responsive', 'UI/UX']
 
 const services = [
   {

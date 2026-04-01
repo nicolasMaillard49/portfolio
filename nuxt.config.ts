@@ -6,7 +6,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
+    '@nuxtjs/sitemap',
   ],
+
+  site: {
+    url: 'https://nicolasmaillard.dev',
+  },
 
   colorMode: {
     preference: 'dark',
@@ -38,15 +43,23 @@ export default defineNuxtConfig({
           content:
             'Développeur web full-stack basé à Bordeaux. Vue.js, Nuxt, TypeScript, NestJS, Prisma.',
         },
-        { property: 'og:image', content: '/og-image.png' },
+        { property: 'og:url', content: 'https://nicolasmaillard.dev' },
+        { property: 'og:image', content: 'https://nicolasmaillard.dev/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         {
           name: 'twitter:title',
           content: 'Nicolas Maillard — Développeur Web Full-Stack Bordeaux',
         },
+        {
+          name: 'twitter:description',
+          content:
+            'Développeur web full-stack basé à Bordeaux. Vue.js, Nuxt, TypeScript, NestJS, Prisma.',
+        },
       ],
       link: [
+        { rel: 'canonical', href: 'https://nicolasmaillard.dev' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {
           rel: 'preconnect',

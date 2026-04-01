@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"filteredProjects\\\\|activeFilter\\\\|tags\\\\|tech\" /c/Users/n.maillard/VueJS/portfolio --include=*.vue --include=*.ts --include=*.js)",
+      "WebFetch(domain:www.restaurants-bordeaux.com)",
+      "WebFetch(domain:clipbag.shop)",
+      "Bash(xargs cat:*)",
+      "Bash(npm install:*)",
+      "Bash(where node:*)",
+      "Bash(echo $PATH)",
+      "Bash(npm --version)"
+    ]
+  }
+}
