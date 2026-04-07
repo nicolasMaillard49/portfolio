@@ -12,7 +12,9 @@
       "Bash(npm list:*)",
       "Bash(export PATH=\"/c/nvm4w/nodejs:$PATH\")",
       "Bash(node scripts/generate-favicon.mjs)",
-      "Bash(npx nuxi:*)"
+      "Bash(npx nuxi:*)",
+      "Bash(git pull:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

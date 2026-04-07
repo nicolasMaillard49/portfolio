@@ -9,7 +9,7 @@
           Travaillons ensemble
         </h2>
         <p class="dark:text-gray-400 text-gray-500 text-base max-w-md mx-auto leading-relaxed">
-          Un projet en tête ? Une question ? Je suis disponible pour en discuter.
+          Un projet en tête ? Une question ? Nous sommes disponibles pour en discuter.
         </p>
       </div>
 
@@ -47,7 +47,7 @@
               <span class="dark:text-gray-300 text-gray-600 text-xs font-medium">Disponible pour de nouveaux projets</span>
             </div>
             <p class="dark:text-gray-400 text-gray-500 text-sm leading-relaxed">
-              N'hésitez pas à me contacter pour discuter de votre projet. Je vous répondrai dans les plus brefs délais.
+              N'hésitez pas à nous contacter pour discuter de votre projet. Nous vous répondrons dans les plus brefs délais.
             </p>
           </div>
         </div>
@@ -180,7 +180,7 @@ const contactInfo = [
   },
   {
     label: 'LinkedIn',
-    value: 'Nicolas Maillard',
+    value: 'NMF Agence',
     href: 'https://www.linkedin.com/in/nicolas-maillard-dev/',
     external: true,
     color: 'linear-gradient(135deg, #0077B5, #004182)',

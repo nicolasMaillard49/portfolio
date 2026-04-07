@@ -8,7 +8,7 @@
           <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="font-display font-semibold text-white text-lg tracking-tight">NM</span>
+      <span class="font-display font-semibold text-white text-lg tracking-tight">NMF</span>
     </div>
     <div class="loader-track" />
   </div>

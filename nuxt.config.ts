@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  devServer: {
+    port: 0,
+  },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
@@ -24,37 +28,47 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'fr' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Nicolas Maillard — Développeur Web Full-Stack Bordeaux',
+      title: 'NMF Agence — Agence Web Full-Stack Bordeaux',
       meta: [
+        { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
         {
           name: 'description',
           content:
-            'Nicolas Maillard, développeur web full-stack basé à Bordeaux. Spécialisé Vue.js, Nuxt, TypeScript, NestJS. Création de sites vitrine, e-commerce et systèmes de réservation.',
+            'NMF Agence, agence web full-stack basée à Bordeaux. Spécialisée Vue.js, Nuxt, TypeScript, NestJS. Création de sites vitrine, e-commerce et systèmes de réservation.',
         },
         { name: 'theme-color', content: '#6366F1' },
+        { name: 'author', content: 'NMF Agence' },
+        { name: 'geo.region', content: 'FR-NAQ' },
+        { name: 'geo.placename', content: 'Bordeaux' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'fr_FR' },
+        { property: 'og:site_name', content: 'NMF Agence' },
         {
           property: 'og:title',
-          content: 'Nicolas Maillard — Développeur Web Full-Stack Bordeaux',
+          content: 'NMF Agence — Agence Web Full-Stack Bordeaux',
         },
         {
           property: 'og:description',
           content:
-            'Développeur web full-stack basé à Bordeaux. Vue.js, Nuxt, TypeScript, NestJS, Prisma.',
+            'Agence web full-stack basée à Bordeaux. Création de sites vitrine, e-commerce et systèmes de réservation. Vue.js, Nuxt, TypeScript.',
         },
         { property: 'og:url', content: 'https://nicolasmaillard.dev' },
         { property: 'og:image', content: 'https://nicolasmaillard.dev/og-image.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: 'NMF Agence — Agence Web Full-Stack Bordeaux' },
         { name: 'twitter:card', content: 'summary_large_image' },
         {
           name: 'twitter:title',
-          content: 'Nicolas Maillard — Développeur Web Full-Stack Bordeaux',
+          content: 'NMF Agence — Agence Web Full-Stack Bordeaux',
         },
         {
           name: 'twitter:description',
           content:
-            'Développeur web full-stack basé à Bordeaux. Vue.js, Nuxt, TypeScript, NestJS, Prisma.',
+            'Agence web full-stack basée à Bordeaux. Création de sites vitrine, e-commerce et systèmes de réservation.',
         },
+        { name: 'twitter:image', content: 'https://nicolasmaillard.dev/og-image.png' },
+        { name: 'twitter:image:alt', content: 'NMF Agence — Agence Web Full-Stack Bordeaux' },
       ],
       link: [
         { rel: 'canonical', href: 'https://nicolasmaillard.dev' },
@@ -76,29 +90,94 @@ export default defineNuxtConfig({
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'Person',
-            name: 'Nicolas Maillard',
-            jobTitle: 'Développeur Web Full-Stack',
-            url: 'https://nicolasmaillard.dev',
-            sameAs: ['https://github.com/nicolasMaillard49'],
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Bordeaux',
-              addressCountry: 'FR',
-            },
-            knowsAbout: [
-              'Vue.js',
-              'Nuxt',
-              'TypeScript',
-              'TailwindCSS',
-              'NestJS',
-              'Prisma',
+            '@graph': [
+              {
+                '@type': 'WebSite',
+                '@id': 'https://nicolasmaillard.dev/#website',
+                url: 'https://nicolasmaillard.dev',
+                name: 'NMF Agence',
+                description: 'Agence Web Full-Stack Bordeaux',
+                inLanguage: 'fr-FR',
+                publisher: { '@id': 'https://nicolasmaillard.dev/#organization' },
+              },
+              {
+                '@type': ['Organization', 'LocalBusiness'],
+                '@id': 'https://nicolasmaillard.dev/#organization',
+                name: 'NMF Agence',
+                url: 'https://nicolasmaillard.dev',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://nicolasmaillard.dev/og-image.png',
+                  width: 1200,
+                  height: 630,
+                },
+                image: 'https://nicolasmaillard.dev/og-image.png',
+                description: 'Agence web full-stack basée à Bordeaux. Création de sites vitrine, e-commerce et systèmes de réservation.',
+                founder: { '@type': 'Person', name: 'Nicolas Maillard' },
+                sameAs: [
+                  'https://github.com/nicolasMaillard49',
+                  'https://www.linkedin.com/in/nicolas-maillard-dev/',
+                ],
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Bordeaux',
+                  addressRegion: 'Nouvelle-Aquitaine',
+                  addressCountry: 'FR',
+                },
+                geo: {
+                  '@type': 'GeoCoordinates',
+                  latitude: 44.8378,
+                  longitude: -0.5792,
+                },
+                areaServed: {
+                  '@type': 'GeoCircle',
+                  geoMidpoint: { '@type': 'GeoCoordinates', latitude: 44.8378, longitude: -0.5792 },
+                  geoRadius: '50000',
+                },
+                priceRange: '€€',
+                knowsAbout: ['Vue.js', 'Nuxt', 'TypeScript', 'TailwindCSS', 'NestJS', 'Prisma'],
+              },
+              {
+                '@type': 'Service',
+                name: 'Création de sites vitrine',
+                description: 'Sites modernes, rapides et optimisés SEO pour présenter votre activité et attirer de nouveaux clients.',
+                provider: { '@id': 'https://nicolasmaillard.dev/#organization' },
+                areaServed: { '@type': 'City', name: 'Bordeaux' },
+                serviceType: 'Développement web',
+              },
+              {
+                '@type': 'Service',
+                name: 'Création de sites e-commerce',
+                description: 'Boutiques en ligne performantes avec gestion des stocks, paiements sécurisés et tunnel de conversion optimisé.',
+                provider: { '@id': 'https://nicolasmaillard.dev/#organization' },
+                areaServed: { '@type': 'City', name: 'Bordeaux' },
+                serviceType: 'E-commerce',
+              },
+              {
+                '@type': 'Service',
+                name: 'Systèmes de réservation',
+                description: 'Applications de réservation sur mesure pour salons, restaurants, coachs ou tout business nécessitant une gestion de créneaux.',
+                provider: { '@id': 'https://nicolasmaillard.dev/#organization' },
+                areaServed: { '@type': 'City', name: 'Bordeaux' },
+                serviceType: 'Application web',
+              },
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://nicolasmaillard.dev' },
+                ],
+              },
+              {
+                '@type': 'WebPage',
+                '@id': 'https://nicolasmaillard.dev/#webpage',
+                url: 'https://nicolasmaillard.dev',
+                name: 'NMF Agence — Agence Web Full-Stack Bordeaux',
+                description: 'NMF Agence, agence web full-stack basée à Bordeaux. Création de sites vitrine, e-commerce et systèmes de réservation.',
+                isPartOf: { '@id': 'https://nicolasmaillard.dev/#website' },
+                about: { '@id': 'https://nicolasmaillard.dev/#organization' },
+                inLanguage: 'fr-FR',
+              },
             ],
-            alumniOf: {
-              '@type': 'CollegeOrUniversity',
-              name: 'Studi.fr',
-              description: 'Bachelor Développement Web',
-            },
           }),
         },
       ],

@@ -15,7 +15,7 @@
             <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span class="font-display font-semibold dark:text-white text-navy-900 text-base tracking-tight">Nicolas Maillard</span>
+        <span class="font-display font-semibold dark:text-white text-navy-900 text-base tracking-tight">NMF Agence</span>
       </a>
 
       <!-- Desktop links -->
@@ -59,7 +59,7 @@
           class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-electric-500 dark:bg-electric-500 hover:bg-electric-600 text-white text-sm font-medium transition-all duration-200 shadow-glow-blue-sm hover:shadow-glow-blue btn-ripple"
           @click="createRipple"
         >
-          Me contacter
+          Nous contacter
         </a>
 
         <!-- Hamburger -->
@@ -94,7 +94,7 @@
           @click.prevent="scrollTo('contact'); menuOpen = false"
           class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-electric-500 dark:bg-electric-500 hover:bg-electric-600 text-white text-sm font-medium transition-colors"
         >
-          Me contacter
+          Nous contacter
         </a>
       </div>
     </Transition>

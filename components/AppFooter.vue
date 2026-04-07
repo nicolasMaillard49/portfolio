@@ -11,7 +11,7 @@
           </svg>
         </div>
         <p class="dark:text-gray-400 text-gray-500 text-sm">
-          © {{ new Date().getFullYear() }} Nicolas Maillard · Développeur Web Full-Stack
+          © {{ new Date().getFullYear() }} NMF Agence · Agence Web Full-Stack Bordeaux
         </p>
       </div>
 

@@ -1,9 +1,8 @@
-# 🚀 Portfolio — Nicolas Maillard
+# 🚀 NMF Agence
 
-> Développeur Web Full-Stack · Bordeaux, France  
-> Freelance basé à Bordeaux
+> Agence Web Full-Stack · Bordeaux, France
 
-Portfolio personnel ultra-moderne construit avec **Nuxt 3 + Vue 3 + TypeScript + TailwindCSS**.
+Site vitrine ultra-moderne construit avec **Nuxt 3 + Vue 3 + TypeScript + TailwindCSS**.
 
 ---
 
@@ -123,10 +122,9 @@ portfolio-nicolas/
 
 ## 📬 Contact
 
-- **Email** : nico39320@gmail.com
 - **GitHub** : [nicolasMaillard49](https://github.com/nicolasMaillard49)
-- **LinkedIn** : [nicolas-maillard-dev](https://www.linkedin.com/in/nicolas-maillard-dev/)
+- **LinkedIn** : [NMF Agence](https://www.linkedin.com/in/nicolas-maillard-dev/)
 
 ---
 
-*Portfolio généré avec ❤️ — Nicolas Maillard, Bordeaux*
+*NMF Agence — Bordeaux*

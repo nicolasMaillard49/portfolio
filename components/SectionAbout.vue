@@ -6,7 +6,7 @@
         <p class="text-electric-500 text-sm font-medium font-display mb-3 tracking-widest uppercase">À propos</p>
         <div class="section-sep mb-5" />
         <h2 class="font-display font-bold dark:text-white text-navy-900 text-4xl leading-tight">
-          Qui suis-je ?
+          Qui sommes-nous ?
         </h2>
       </div>
 
@@ -15,13 +15,13 @@
         <div class="space-y-8">
           <div class="reveal reveal-delay-1 space-y-5 dark:text-gray-300 text-gray-600 text-base leading-relaxed">
             <p>
-              Je suis <strong class="dark:text-white text-navy-900 font-semibold">Nicolas Maillard</strong>, développeur web full-stack basé à Bordeaux, actuellement en Bachelor Développement Web chez <strong class="dark:text-white text-navy-900 font-semibold">Studi.fr</strong>.
+              <strong class="dark:text-white text-navy-900 font-semibold">NMF Agence</strong> est une agence web full-stack basée à Bordeaux, spécialisée dans le développement de solutions digitales sur mesure.
             </p>
             <p>
-              Passionné par la création d'interfaces modernes et de systèmes robustes, je conçois des sites web <strong class="dark:text-white text-navy-900 font-semibold">modernes et performants</strong>, avec une attention particulière portée à l'expérience utilisateur et aux bonnes pratiques.
+              Passionnés par la création d'interfaces modernes et de systèmes robustes, nous concevons des sites web <strong class="dark:text-white text-navy-900 font-semibold">modernes et performants</strong>, avec une attention particulière portée à l'expérience utilisateur et aux bonnes pratiques.
             </p>
             <p>
-              Ma philosophie : <em class="dark:text-gray-200 text-navy-800">"valoriser le savoir-faire français"</em> à travers des produits web qui allient esthétique, performance et accessibilité.
+              Notre philosophie : <em class="dark:text-gray-200 text-navy-800">"valoriser le savoir-faire français"</em> à travers des produits web qui allient esthétique, performance et accessibilité.
             </p>
           </div>
 
@@ -33,12 +33,12 @@
               </svg>
             </div>
             <div>
-              <h3 class="font-display font-semibold dark:text-white text-navy-900 mb-1">Freelance</h3>
+              <h3 class="font-display font-semibold dark:text-white text-navy-900 mb-1">À votre service</h3>
               <p class="dark:text-gray-400 text-gray-500 text-sm leading-relaxed">
-                Disponible pour vos projets web. Sites vitrines, e-commerce, applications sur mesure.
+                Disponibles pour vos projets web. Sites vitrines, e-commerce, applications sur mesure.
               </p>
               <a href="#contact" class="inline-flex items-center gap-1 mt-2 text-xs text-electric-400 hover:text-electric-300 font-medium transition-colors">
-                Me contacter
+                Nous contacter
                 <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
             </div>

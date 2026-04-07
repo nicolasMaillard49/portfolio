@@ -9,7 +9,7 @@
           Ce que je propose
         </h2>
         <p class="dark:text-gray-400 text-gray-500 mt-4 max-w-xl text-base leading-relaxed">
-          Je crée des produits web qui allient esthétique, performance et respect de vos utilisateurs.
+          Nous créons des produits web qui allient esthétique, performance et respect de vos utilisateurs.
         </p>
       </div>
 
@@ -46,7 +46,7 @@
       </div>
 
       <!-- CTA banner -->
-      <div class="reveal glass-strong rounded-2xl p-8 md:p-10 relative overflow-hidden dark:bg-gradient-to-r dark:from-[rgba(99,102,241,0.08)] dark:to-[rgba(167,139,250,0.04)] bg-gradient-to-r from-navy-900 to-navy-700">
+      <div class="reveal cta-banner rounded-2xl p-8 md:p-10 relative overflow-hidden">
         <!-- Background glow -->
         <div class="absolute right-0 top-0 w-64 h-64 rounded-full bg-electric-500/10 blur-[80px] pointer-events-none" />
         <div class="absolute left-0 bottom-0 w-48 h-48 rounded-full bg-accent-violet/8 blur-[60px] pointer-events-none" />
@@ -59,13 +59,13 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                 </svg>
               </div>
-              <span class="text-xs font-semibold text-electric-400 uppercase tracking-widest">Freelance</span>
+              <span class="text-xs font-semibold text-electric-400 uppercase tracking-widest">NMF Agence</span>
             </div>
             <h3 class="font-display font-bold text-white text-2xl leading-tight">
               Vous avez un projet web ?
             </h3>
             <p class="text-gray-300 text-sm leading-relaxed max-w-md">
-              Performances optimales, design soigné, code maintenable. Je crée des sites modernes et durables adaptés à vos besoins.
+              Performances optimales, design soigné, code maintenable. Nous créons des sites modernes et durables adaptés à vos besoins.
             </p>
             <div class="flex flex-wrap gap-3 pt-1">
               <span v-for="tag in ctaTags" :key="tag" class="px-3 py-1 bg-white/10 text-white/80 rounded-full text-xs font-medium">{{ tag }}</span>
