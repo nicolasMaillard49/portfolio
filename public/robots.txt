@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_nuxt/builds/
 
-Sitemap: https://nicolasmaillard.dev/sitemap.xml
+Sitemap: https://nmf-agence.com/sitemap.xml
