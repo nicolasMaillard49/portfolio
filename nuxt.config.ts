@@ -30,6 +30,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       title: 'NMF Agence — Agence Web Full-Stack Bordeaux',
       meta: [
+        { name: 'google-site-verification', content: 'RHew6OnmcZMqNnWZeXSWcUjem5Y9UICELSmpixaxuRQ' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
         {
           name: 'description',
@@ -86,6 +87,13 @@ export default defineNuxtConfig({
         },
       ],
       script: [
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-FZ2HWKMDQT',
+          async: true,
+        },
+        {
+          innerHTML: "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-FZ2HWKMDQT');",
+        },
         {
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
