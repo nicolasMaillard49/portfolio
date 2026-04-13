@@ -14,14 +14,7 @@
     <!-- Navigation -->
     <AppNav :active-section="activeSection" />
 
-    <!-- Main content -->
-    <main>
-      <SectionHero />
-      <SectionAbout />
-      <SectionProjects />
-      <SectionServices />
-      <SectionContact />
-    </main>
+    <NuxtPage />
 
     <!-- Footer -->
     <AppFooter />
@@ -29,20 +22,5 @@
 </template>
 
 <script setup lang="ts">
-const { activeSection, init: initActiveSection } = useActiveSection([
-  'hero',
-  'about',
-  'projects',
-  'services',
-  'contact',
-])
-const { init: initScrollReveal } = useScrollReveal()
-const { init: initSkillBars } = useSkillBars()
-
-onMounted(() => {
-  initScrollReveal()
-  initSkillBars()
-  const cleanup = initActiveSection()
-  onUnmounted(cleanup)
-})
+const activeSection = useNavActiveSection()
 </script>

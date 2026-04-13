@@ -121,7 +121,18 @@ const toggleMode = () => {
   colorMode.preference = isDark.value ? 'light' : 'dark'
 }
 
-const scrollTo = (id: string) => {
+const route = useRoute()
+const router = useRouter()
+
+const scrollTo = async (id: string) => {
+  if (route.path !== '/') {
+    await router.push(`/#${id}`)
+    await nextTick()
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 50)
+    return
+  }
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
