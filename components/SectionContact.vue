@@ -86,11 +86,11 @@
                 v-model="form.subject"
                 class="w-full px-4 py-2.5 rounded-xl text-sm glass-input dark:text-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-electric-500/40 transition-all"
               >
-                <option value="">Sélectionner...</option>
-                <option value="vitrine">Site Vitrine</option>
-                <option value="ecommerce">Site E-commerce</option>
-                <option value="booking">Système de réservation</option>
-                <option value="autre">Autre projet</option>
+                <option value="" class="bg-white text-gray-900 dark:bg-navy-900 dark:text-white">Sélectionner...</option>
+                <option value="Site Vitrine" class="bg-white text-gray-900 dark:bg-navy-900 dark:text-white">Site Vitrine</option>
+                <option value="Site E-commerce" class="bg-white text-gray-900 dark:bg-navy-900 dark:text-white">Site E-commerce</option>
+                <option value="Système de réservation" class="bg-white text-gray-900 dark:bg-navy-900 dark:text-white">Système de réservation</option>
+                <option value="Autre projet" class="bg-white text-gray-900 dark:bg-navy-900 dark:text-white">Autre projet</option>
               </select>
             </div>
             <div class="space-y-1.5">
@@ -140,21 +140,26 @@ const form = reactive({ name: '', email: '', subject: '', message: '' })
 const sending = ref(false)
 const sent = ref(false)
 
-const FORMSPREE_ID = 'xyzgobkl' // TODO: remplacer par ton vrai ID Formspree (formspree.io)
+const CONTACT_EMAIL = 'contact@nmf-agence.com'
 const error = ref(false)
 
 const handleSubmit = async () => {
   sending.value = true
   error.value = false
   try {
-    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+    const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        name: form.name,
-        email: form.email,
-        subject: form.subject,
-        message: form.message,
+        '👤 Nom': form.name,
+        '📧 Email': form.email,
+        '🎯 Type de projet': form.subject || 'Non précisé',
+        '💬 Message': form.message,
+        '📅 Reçu le': new Date().toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'short' }),
+        _subject: `[NMF Agence] ${form.subject || 'Nouveau message'} — ${form.name}`,
+        _replyto: form.email,
+        _template: 'table',
+        _captcha: 'true',
       }),
     })
     if (!res.ok) throw new Error('Erreur envoi')
