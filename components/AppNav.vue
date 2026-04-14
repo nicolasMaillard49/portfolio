@@ -114,6 +114,7 @@ const navLinks = [
   { id: 'about', label: 'À propos' },
   { id: 'projects', label: 'Projets' },
   { id: 'services', label: 'Services' },
+  { id: 'pricing', label: 'Tarifs' },
   { id: 'contact', label: 'Contact' },
 ]
 

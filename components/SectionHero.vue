@@ -64,7 +64,7 @@
         </div>
 
         <!-- Social links -->
-        <div class="flex items-center gap-4 pt-1">
+        <div class="flex items-center flex-wrap gap-x-4 gap-y-2 pt-1">
           <a href="https://github.com/nicolasMaillard49" target="_blank" rel="noopener"
             class="flex items-center gap-2 dark:text-gray-400 text-gray-500 dark:hover:text-white hover:text-navy-900 text-sm transition-colors"
             aria-label="GitHub de NMF Agence"

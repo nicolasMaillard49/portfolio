@@ -4,7 +4,10 @@
     <SectionAbout />
     <SectionProjects />
     <SectionServices />
+    <SectionAI />
+    <SectionPricing />
     <SectionContact />
+    <SectionFAQ />
   </main>
 </template>
 
@@ -14,7 +17,9 @@ const { activeSection, init: initActiveSection } = useActiveSection([
   'about',
   'projects',
   'services',
+  'pricing',
   'contact',
+  'faq',
 ])
 const { init: initScrollReveal } = useScrollReveal()
 const { init: initSkillBars } = useSkillBars()
