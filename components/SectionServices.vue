@@ -74,7 +74,7 @@
           <div class="shrink-0">
             <a
               href="#contact"
-              @click.prevent="scrollTo('contact')"
+              @click.prevent="openQuote"
               class="btn-ripple flex items-center gap-2 px-6 py-3 rounded-xl bg-electric-500 hover:bg-electric-600 text-white font-medium text-sm transition-all shadow-glow-blue-sm hover:shadow-glow-blue whitespace-nowrap"
             >
               Demander un devis
@@ -89,9 +89,14 @@
 
 <script setup lang="ts">
 const { onMouseMove, onMouseLeave } = useTilt()
+const prefill = useContactPrefill()
 
-const scrollTo = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+const openQuote = () => {
+  prefill.value = {
+    subject: 'Autre projet',
+    message: 'Bonjour,\n\nJe souhaite obtenir un devis pour mon projet web.\n\nDescription : ',
+  }
+  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 const ctaTags = ['Vue.js / Nuxt', 'Performance', 'SEO', 'Responsive', 'UI/UX']

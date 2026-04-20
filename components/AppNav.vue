@@ -9,7 +9,7 @@
       <!-- Logo -->
       <a href="#hero" @click.prevent="scrollTo('hero')" class="flex items-center gap-2.5 group">
         <img
-          src="/logo.png"
+          src="/logo-symbole.png"
           alt="NMF Agence"
           width="36"
           height="36"

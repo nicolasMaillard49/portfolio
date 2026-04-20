@@ -160,6 +160,17 @@ const error = ref(false)
 
 const CONTACT_EMAIL = 'contact@nmf-agence.com'
 
+const prefill = useContactPrefill()
+
+watch(
+  prefill,
+  (val) => {
+    if (val.subject) form.subject = val.subject
+    if (val.message) form.message = val.message
+  },
+  { immediate: true, deep: true },
+)
+
 const handleSubmit = () => {
   sending.value = true
   error.value = false
@@ -177,6 +188,7 @@ const handleSubmit = () => {
     window.location.href = href
     sent.value = true
     Object.assign(form, { name: '', email: '', subject: '', message: '' })
+    prefill.value = { subject: '', message: '' }
     setTimeout(() => { sent.value = false }, 4000)
   } catch {
     error.value = true

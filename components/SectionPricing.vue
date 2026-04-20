@@ -88,11 +88,11 @@
           <!-- CTA -->
           <a
             href="#contact"
-            @click.prevent="scrollTo"
+            @click.prevent="openQuote(plan)"
             class="btn-ripple block text-center px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200"
             :class="plan.featured
               ? 'bg-electric-500 hover:bg-electric-600 text-white shadow-glow-blue-sm hover:shadow-glow-blue'
-              : 'glass-card dark:text-white text-navy-900 hover:bg-[rgba(255,255,255,0.08)]'"
+              : 'glass-card dark:text-white text-navy-900'"
           >
             Demander un devis
           </a>
@@ -108,7 +108,20 @@
 </template>
 
 <script setup lang="ts">
-const scrollTo = () => {
+const prefill = useContactPrefill()
+
+const subjectForPlan = (name: string) => {
+  if (/vitrine/i.test(name)) return 'Site Vitrine'
+  if (/réservation|reservation/i.test(name)) return 'Système de réservation'
+  if (/e-?commerce/i.test(name)) return 'Site E-commerce'
+  return 'Autre projet'
+}
+
+const openQuote = (plan: { name: string; price: number }) => {
+  prefill.value = {
+    subject: subjectForPlan(plan.name),
+    message: `Bonjour,\n\nJe suis intéressé(e) par la formule « ${plan.name} » (${plan.price}€ HT) et souhaiterais recevoir un devis détaillé.\n\nMon projet : `,
+  }
   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 

@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <!-- Logo + copyright -->
       <div class="flex items-center gap-3">
-        <img src="/logo.png" alt="NMF Agence" width="28" height="28" class="w-7 h-7 object-contain" />
+        <img src="/logo-symbole.png" alt="NMF Agence" width="28" height="28" class="w-7 h-7 object-contain" />
         <p class="dark:text-gray-400 text-gray-500 text-sm">
           © {{ new Date().getFullYear() }} NMF Agence · Agence Web Full-Stack Bordeaux
         </p>
