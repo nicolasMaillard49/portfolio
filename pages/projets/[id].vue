@@ -54,7 +54,7 @@
             </svg>
           </a>
           <a
-            v-if="project.github"
+            v-if="project.github && project.live"
             :href="project.github"
             target="_blank"
             rel="noopener"
@@ -264,7 +264,7 @@ const { getBySlug, getRelated } = useProjects()
 
 const project = computed(() => getBySlug(String(route.params.id)))
 
-if (!project.value || !project.value.live) {
+if (!project.value) {
   throw createError({ statusCode: 404, statusMessage: 'Projet introuvable' })
 }
 

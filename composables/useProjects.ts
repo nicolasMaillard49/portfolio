@@ -383,6 +383,26 @@ const projects: Project[] = [
     gradient: ['#DC2626', '#7F1D1D'],
     tags: ['Nuxt', 'TypeScript'],
     icon: icons.shield,
+    details: {
+      context: "SPUC Boxing Club à Pessac avait besoin d'un site vitrine moderne pour affirmer son identité, présenter ses disciplines (boxe anglaise, kickboxing, Muay Thaï, fitness boxing) et faciliter l'inscription de nouveaux membres. Esthétique sombre, rouge sang, énergique — à l'image du club.",
+      challenges: [
+        "Transmettre l'intensité du club via le design sans tomber dans le cliché",
+        "Gérer un planning hebdomadaire lisible avec filtres par discipline",
+        "SEO local solide pour capter les recherches 'boxe Pessac' et 'club de boxe Bordeaux'",
+        "Performances Lighthouse élevées malgré la richesse visuelle",
+      ],
+      features: [
+        { icon: '🥊', title: 'Disciplines détaillées', description: "Pages dédiées par discipline avec visuels et niveaux d'exigence clairs." },
+        { icon: '📅', title: 'Planning interactif', description: "Tableau des cours filtrable, consultable en un coup d'œil sur mobile." },
+        { icon: '🏆', title: 'Coaches & valeurs', description: "Pages 'À propos' mettant en avant l'équipe et l'histoire du club." },
+        { icon: '📨', title: 'Formulaire de contact', description: "Prise de contact simple pour nouveaux adhérents et questions pratiques." },
+      ],
+      stackDetails: [
+        { name: 'Nuxt 3', reason: "SSG pour un SEO optimal et un time-to-interactive minimal." },
+        { name: 'TypeScript', reason: "Fiabilise le code et documente les intentions." },
+        { name: 'TailwindCSS', reason: "Design system cohérent et responsive sans CSS custom lourd." },
+      ],
+    },
   },
   {
     id: 'julien-perret',
@@ -402,6 +422,26 @@ const projects: Project[] = [
     gradient: ['#92400E', '#451A03'],
     tags: ['Nuxt', 'TypeScript'],
     icon: icons.home,
+    details: {
+      context: "Julien Perret, artisan charpentier à Bordeaux, souhaitait une vitrine premium mettant en avant la noblesse du bois et la précision du geste artisanal. Le site devait transmettre le savoir-faire, présenter les réalisations et générer des demandes de devis qualifiées.",
+      challenges: [
+        "Retranscrire la chaleur du bois dans le design sans tomber dans le rustique",
+        "Galerie masonry performante avec lightbox fluide sur mobile",
+        "Animations scroll et compteurs animés sans plomber le Lighthouse",
+        "SEO local sur 'charpentier Bordeaux' et requêtes longue traîne",
+      ],
+      features: [
+        { icon: '🏗️', title: 'Services détaillés', description: "Présentation claire des prestations (charpente, menuiserie, escaliers sur-mesure)." },
+        { icon: '🖼️', title: 'Galerie masonry', description: "Réalisations mises en valeur dans une grille dynamique avec lightbox." },
+        { icon: '📞', title: 'Devis en ligne', description: "Formulaire de contact avec qualification du besoin pour gagner du temps." },
+        { icon: '🔍', title: 'SEO local', description: "JSON-LD LocalBusiness, sitemap et balises optimisés pour Bordeaux." },
+      ],
+      stackDetails: [
+        { name: 'Nuxt 3', reason: "SSG + SEO natif pour un référencement local maximal." },
+        { name: 'TypeScript', reason: "Documente les intentions et évite les régressions." },
+        { name: 'TailwindCSS', reason: "Design system bois chaleureux déployé rapidement." },
+      ],
+    },
   },
   {
     id: 'kraft',
@@ -421,21 +461,27 @@ const projects: Project[] = [
     gradient: ['#7C9A7E', '#3F5A45'],
     tags: ['TypeScript'],
     icon: icons.building,
-  },
-  {
-    id: 'ecommerce',
-    title: 'First E-commerce Site',
-    description: 'Boutique e-commerce complète avec catalogue produits, panier, gestion des commandes. Premier projet e-commerce développé avec Vue.js.',
-    type: 'E-commerce',
-    tech: ['Vue.js', 'JavaScript', 'CSS3'],
-    github: 'https://github.com/nicolasMaillard49/first-ecommerce-site',
-    url: null,
-    screenshot: null,
-    live: false,
-    featured: false,
-    gradient: ['#065F46', '#022C22'],
-    tags: ['Vue.js', 'E-commerce'],
-    icon: icons.bag,
+    details: {
+      context: "KRAFT est un fleuriste artisan installé 278 Cours de la Somme à Bordeaux. Le site vitrine devait refléter l'univers botanique minimaliste de la boutique, mettre en avant les créations florales (bouquets, compositions, événements) et faciliter la prise de contact.",
+      challenges: [
+        "Créer une esthétique botanique épurée sans iconographie stock",
+        "Illustrations florales 100% SVG inline pour préserver les performances",
+        "Smooth scroll et micro-animations sans sacrifier le Lighthouse",
+        "SEO local sur 'fleuriste Bordeaux' et requêtes événements (mariage, cérémonies)",
+      ],
+      features: [
+        { icon: '💐', title: 'Créations mises en avant', description: "Bouquets, compositions et arrangements événementiels dans des cards soignées." },
+        { icon: '🌿', title: 'Illustrations botaniques', description: "Motifs floraux SVG dessinés à la main, zéro image stock." },
+        { icon: '📍', title: 'Infos boutique', description: "Adresse, horaires détaillés, téléphone cliquable et intégration Google Places." },
+        { icon: '✨', title: 'Animations subtiles', description: "Framer-motion + Lenis pour un smooth scroll naturel sans verbosité." },
+      ],
+      stackDetails: [
+        { name: 'Next.js 14', reason: "App Router + SSR pour un SEO local optimal et une DX moderne." },
+        { name: 'TypeScript', reason: "Typage strict pour sécuriser l'évolution du site." },
+        { name: 'TailwindCSS', reason: "Design system crème / vert sauge / marron kraft déployé rapidement." },
+        { name: 'framer-motion + lenis', reason: "Animations et smooth scroll calibrés sans impact perf." },
+      ],
+    },
   },
 ]
 

@@ -70,7 +70,7 @@
               </div>
               <!-- Overlay on hover -->
               <div class="absolute inset-0 bg-navy-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 flex-wrap px-3">
-                <NuxtLink v-if="project.live && project.details" :to="`/projets/${project.id}`"
+                <NuxtLink v-if="project.details" :to="`/projets/${project.id}`"
                   class="px-4 py-2 bg-electric-500 text-white text-xs font-semibold rounded-lg hover:bg-electric-400 transition-colors">
                   Détails
                 </NuxtLink>
@@ -78,7 +78,7 @@
                   class="px-4 py-2 bg-white/10 backdrop-blur-sm text-white text-xs font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20">
                   Voir le site
                 </a>
-                <a v-if="project.github" :href="project.github" target="_blank" rel="noopener"
+                <a v-if="project.github && project.live" :href="project.github" target="_blank" rel="noopener"
                   class="px-4 py-2 bg-white/10 backdrop-blur-sm text-white text-xs font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20">
                   GitHub
                 </a>
@@ -114,7 +114,7 @@
               <!-- Actions -->
               <div class="flex items-center gap-3 pt-2 flex-wrap">
                 <a
-                  v-if="project.github"
+                  v-if="project.github && project.live"
                   :href="project.github"
                   target="_blank"
                   rel="noopener"
@@ -124,7 +124,7 @@
                   Code
                 </a>
                 <NuxtLink
-                  v-if="project.live && project.details"
+                  v-if="project.details"
                   :to="`/projets/${project.id}`"
                   class="flex items-center gap-1.5 text-xs text-electric-400 hover:text-electric-300 transition-colors font-medium ml-auto"
                 >
@@ -137,7 +137,7 @@
                   target="_blank"
                   rel="noopener"
                   class="flex items-center gap-1.5 text-xs dark:text-gray-400 text-gray-500 dark:hover:text-electric-300 hover:text-electric-600 transition-colors font-medium"
-                  :class="!(project.live && project.details) ? 'ml-auto' : ''"
+                  :class="!project.details ? 'ml-auto' : ''"
                 >
                   Voir le site
                   <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
