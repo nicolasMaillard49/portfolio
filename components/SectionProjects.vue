@@ -42,7 +42,7 @@
             v-for="(project, i) in filteredProjects"
             :key="project.id"
             class="tilt-card glass-card rounded-2xl overflow-hidden group shadow-glass dark:hover:shadow-glass-hover hover:shadow-card-light-hover"
-            :class="i >= mobilePreviewCount && !showAll ? 'hidden md:flex md:flex-col' : ''"
+            :class="[cardVisibilityClass(i), cardOrderClass(project.id)]"
             :style="{ animationDelay: `${i * 60}ms` }"
             @mousemove="onMouseMove"
             @mouseleave="onMouseLeave"
@@ -148,17 +148,17 @@
           </div>
         </TransitionGroup>
 
-        <!-- Voir plus (mobile only) -->
+        <!-- Voir plus -->
         <div
-          v-if="filteredProjects.length > mobilePreviewCount"
-          class="md:hidden mt-8 flex justify-center"
+          v-if="filteredProjects.length > desktopPreviewCount"
+          class="mt-8 flex justify-center"
         >
           <button
             type="button"
             @click="showAll = !showAll"
             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass-card dark:text-white text-navy-900 text-sm font-semibold transition-all"
           >
-            {{ showAll ? 'Voir moins' : `Voir plus (${filteredProjects.length - mobilePreviewCount})` }}
+            {{ showAll ? 'Voir moins' : 'Voir plus' }}
             <svg
               class="w-4 h-4 transition-transform duration-300"
               :class="showAll ? 'rotate-180' : ''"
@@ -181,13 +181,15 @@ const showAll = ref(false)
 const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce', 'WordPress']
 
 const mobilePreviewCount = 4
-const mobilePriorityIds = ['larencontre', 'anthonyfrides', 'restaurants-bordeaux', 'clipbag']
+const desktopPreviewCount = 3
+// DOM order follows the desktop priority; mobile visual order is adjusted via CSS order.
+const priorityIds = ['anthonyfrides', 'larencontre', 'restaurants-bordeaux', 'clipbag']
 
 const orderedProjects = computed(() => {
-  const priority = mobilePriorityIds
+  const priority = priorityIds
     .map((id) => projects.find((p) => p.id === id))
     .filter((p): p is (typeof projects)[number] => !!p)
-  const rest = projects.filter((p) => !mobilePriorityIds.includes(p.id))
+  const rest = projects.filter((p) => !priorityIds.includes(p.id))
   return [...priority, ...rest]
 })
 
@@ -195,6 +197,19 @@ const filteredProjects = computed(() => {
   if (activeFilter.value === 'Tous') return orderedProjects.value
   return orderedProjects.value.filter((p) => p.tags.includes(activeFilter.value))
 })
+
+const cardVisibilityClass = (i: number) => {
+  if (showAll.value) return ''
+  if (i < desktopPreviewCount) return ''
+  if (i < mobilePreviewCount) return 'md:hidden'
+  return 'hidden'
+}
+
+const cardOrderClass = (id: string) => {
+  if (id === 'anthonyfrides') return 'order-2 md:order-none'
+  if (id === 'larencontre') return 'order-1 md:order-none'
+  return ''
+}
 
 watch(activeFilter, () => {
   showAll.value = false
