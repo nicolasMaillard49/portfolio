@@ -171,21 +171,26 @@ watch(
   { immediate: true, deep: true },
 )
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   sending.value = true
   error.value = false
   try {
-    const subject = `[NMF Agence] ${form.subject || 'Nouveau message'} — ${form.name}`
-    const body = [
-      `Nom : ${form.name}`,
-      `Email : ${form.email}`,
-      `Type de projet : ${form.subject || 'Non précisé'}`,
-      '',
-      'Message :',
-      form.message,
-    ].join('\n')
-    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = href
+    const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        '👤 Nom': form.name,
+        '📧 Email': form.email,
+        '🎯 Type de projet': form.subject || 'Non précisé',
+        '💬 Message': form.message,
+        '📅 Reçu le': new Date().toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'short' }),
+        _subject: `[NMF Agence] ${form.subject || 'Nouveau message'} — ${form.name}`,
+        _replyto: form.email,
+        _template: 'table',
+        _captcha: 'true',
+      }),
+    })
+    if (!res.ok) throw new Error('Erreur envoi')
     sent.value = true
     Object.assign(form, { name: '', email: '', subject: '', message: '' })
     prefill.value = { subject: '', message: '' }
