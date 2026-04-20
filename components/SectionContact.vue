@@ -156,30 +156,25 @@ const { createRipple } = useRipple()
 const form = reactive({ name: '', email: '', subject: '', message: '' })
 const sending = ref(false)
 const sent = ref(false)
-
-const CONTACT_EMAIL = 'contact@nmf-agence.com'
 const error = ref(false)
 
-const handleSubmit = async () => {
+const CONTACT_EMAIL = 'contact@nmf-agence.com'
+
+const handleSubmit = () => {
   sending.value = true
   error.value = false
   try {
-    const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        '👤 Nom': form.name,
-        '📧 Email': form.email,
-        '🎯 Type de projet': form.subject || 'Non précisé',
-        '💬 Message': form.message,
-        '📅 Reçu le': new Date().toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'short' }),
-        _subject: `[NMF Agence] ${form.subject || 'Nouveau message'} — ${form.name}`,
-        _replyto: form.email,
-        _template: 'table',
-        _captcha: 'true',
-      }),
-    })
-    if (!res.ok) throw new Error('Erreur envoi')
+    const subject = `[NMF Agence] ${form.subject || 'Nouveau message'} — ${form.name}`
+    const body = [
+      `Nom : ${form.name}`,
+      `Email : ${form.email}`,
+      `Type de projet : ${form.subject || 'Non précisé'}`,
+      '',
+      'Message :',
+      form.message,
+    ].join('\n')
+    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = href
     sent.value = true
     Object.assign(form, { name: '', email: '', subject: '', message: '' })
     setTimeout(() => { sent.value = false }, 4000)
@@ -192,6 +187,14 @@ const handleSubmit = async () => {
 }
 
 const contactInfo = [
+  {
+    label: 'Instagram',
+    value: '@nmfagence',
+    href: 'https://www.instagram.com/nmfagence/',
+    external: true,
+    color: 'linear-gradient(135deg, #F58529, #DD2A7B, #8134AF, #515BD4)',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.265.07 1.645.07 4.849 0 3.204-.012 3.584-.07 4.849-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.265.058-1.645.07-4.849.07-3.204 0-3.584-.012-4.849-.07-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.849c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0 1.838c-3.142 0-3.511.011-4.75.068-1.03.047-1.59.217-1.96.361-.494.192-.846.421-1.216.791-.37.37-.599.722-.791 1.216-.144.37-.314.93-.361 1.96C2.85 8.489 2.838 8.858 2.838 12c0 3.142.011 3.511.068 4.75.047 1.03.217 1.59.361 1.96.192.494.421.846.791 1.216.37.37.722.599 1.216.791.37.144.93.314 1.96.361 1.239.057 1.608.068 4.75.068s3.511-.011 4.75-.068c1.03-.047 1.59-.217 1.96-.361.494-.192.846-.421 1.216-.791.37-.37.599-.722.791-1.216.144-.37.314-.93.361-1.96.057-1.239.068-1.608.068-4.75s-.011-3.511-.068-4.75c-.047-1.03-.217-1.59-.361-1.96-.192-.494-.421-.846-.791-1.216-.37-.37-.722-.599-1.216-.791-.37-.144-.93-.314-1.96-.361C15.511 4.012 15.142 4.001 12 4.001zm0 3.131a4.868 4.868 0 1 1 0 9.736 4.868 4.868 0 0 1 0-9.736zm0 8.03a3.162 3.162 0 1 0 0-6.324 3.162 3.162 0 0 0 0 6.324zm6.188-8.248a1.137 1.137 0 1 1-2.274 0 1.137 1.137 0 0 1 2.274 0z"/></svg>',
+  },
   {
     label: 'GitHub',
     value: 'github.com/nicolasMaillard49',

@@ -8,13 +8,13 @@
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" @click.prevent="scrollTo('hero')" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg bg-electric-500 dark:bg-electric-500 flex items-center justify-center shadow-glow-blue-sm group-hover:shadow-glow-blue transition-shadow duration-300">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
-            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
-            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <img
+          src="/logo.png"
+          alt="NMF Agence"
+          width="36"
+          height="36"
+          class="w-9 h-9 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_14px_rgba(192,81,255,0.35)]"
+        />
         <span class="font-display font-semibold dark:text-white text-navy-900 text-base tracking-tight">NMF Agence</span>
       </a>
 
