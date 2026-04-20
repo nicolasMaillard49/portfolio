@@ -39,10 +39,9 @@
       <!-- Grid -->
         <TransitionGroup name="project-grid" tag="div" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           <div
-            v-for="(project, i) in filteredProjects"
+            v-for="(project, i) in displayedProjects"
             :key="project.id"
             class="tilt-card glass-card rounded-2xl overflow-hidden group shadow-glass dark:hover:shadow-glass-hover hover:shadow-card-light-hover"
-            :class="[cardVisibilityClass(i), cardOrderClass(project.id)]"
             :style="{ animationDelay: `${i * 60}ms` }"
             @mousemove="onMouseMove"
             @mouseleave="onMouseLeave"
@@ -150,7 +149,7 @@
 
         <!-- Voir plus -->
         <div
-          v-if="filteredProjects.length > desktopPreviewCount"
+          v-if="filteredProjects.length > previewCount"
           class="mt-8 flex justify-center"
         >
           <button
@@ -173,6 +172,8 @@
 </template>
 
 <script setup lang="ts">
+import type { Project } from '~/composables/useProjects'
+
 const { onMouseMove, onMouseLeave } = useTilt()
 const { projects } = useProjects()
 const activeFilter = ref('Tous')
@@ -182,34 +183,45 @@ const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce',
 
 const mobilePreviewCount = 4
 const desktopPreviewCount = 3
-// DOM order follows the desktop priority; mobile visual order is adjusted via CSS order.
-const priorityIds = ['anthonyfrides', 'larencontre', 'restaurants-bordeaux', 'clipbag']
+const desktopPriorityIds = ['anthonyfrides', 'larencontre', 'restaurants-bordeaux', 'clipbag']
+const mobilePriorityIds = ['larencontre', 'anthonyfrides', 'restaurants-bordeaux', 'clipbag']
 
-const orderedProjects = computed(() => {
-  const priority = priorityIds
+const isMd = ref(false)
+onMounted(() => {
+  const mq = window.matchMedia('(min-width: 768px)')
+  isMd.value = mq.matches
+  const handler = (e: MediaQueryListEvent) => {
+    isMd.value = e.matches
+  }
+  mq.addEventListener('change', handler)
+  onBeforeUnmount(() => mq.removeEventListener('change', handler))
+})
+
+const activePriorityIds = computed(() =>
+  isMd.value ? desktopPriorityIds : mobilePriorityIds,
+)
+
+const orderedProjects = computed<Project[]>(() => {
+  const ids = activePriorityIds.value
+  const priority = ids
     .map((id) => projects.find((p) => p.id === id))
-    .filter((p): p is (typeof projects)[number] => !!p)
-  const rest = projects.filter((p) => !priorityIds.includes(p.id))
+    .filter((p): p is Project => !!p)
+  const rest = projects.filter((p) => !ids.includes(p.id))
   return [...priority, ...rest]
 })
 
-const filteredProjects = computed(() => {
+const filteredProjects = computed<Project[]>(() => {
   if (activeFilter.value === 'Tous') return orderedProjects.value
   return orderedProjects.value.filter((p) => p.tags.includes(activeFilter.value))
 })
 
-const cardVisibilityClass = (i: number) => {
-  if (showAll.value) return ''
-  if (i < desktopPreviewCount) return ''
-  if (i < mobilePreviewCount) return 'md:hidden'
-  return 'hidden'
-}
+const previewCount = computed(() =>
+  isMd.value ? desktopPreviewCount : mobilePreviewCount,
+)
 
-const cardOrderClass = (id: string) => {
-  if (id === 'anthonyfrides') return 'order-2 md:order-none'
-  if (id === 'larencontre') return 'order-1 md:order-none'
-  return ''
-}
+const displayedProjects = computed<Project[]>(() =>
+  showAll.value ? filteredProjects.value : filteredProjects.value.slice(0, previewCount.value),
+)
 
 watch(activeFilter, () => {
   showAll.value = false
@@ -217,10 +229,10 @@ watch(activeFilter, () => {
 </script>
 
 <style scoped>
-.project-grid-move { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.project-grid-enter-active { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.project-grid-leave-active { transition: all 0.25s ease; position: absolute; opacity: 0; }
-.project-grid-enter-from { opacity: 0; transform: translateY(16px) scale(0.96); }
-.project-grid-leave-to { opacity: 0; transform: scale(0.96); }
+.project-grid-move { transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+.project-grid-enter-active { transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+.project-grid-leave-active { transition: opacity 0.25s ease, transform 0.25s ease; position: absolute; width: calc(100% - 0px); }
+.project-grid-enter-from { opacity: 0; transform: translateY(18px) scale(0.96); }
+.project-grid-leave-to { opacity: 0; transform: translateY(-8px) scale(0.96); }
 .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 </style>
