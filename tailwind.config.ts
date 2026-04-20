@@ -44,8 +44,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Space Grotesk', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif'],
+        body: ['Montserrat', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease forwards',
