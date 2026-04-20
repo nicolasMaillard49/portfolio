@@ -129,7 +129,7 @@ const plans = [
   {
     name: 'Site Vitrine',
     description: 'Un site professionnel pour présenter votre activité et gagner en visibilité.',
-    price: 300,
+    price: 299,
     maintenance: 'standard',
     featured: false,
     gradient: ['#2563EB', '#1E3A8A'],
@@ -146,7 +146,7 @@ const plans = [
   {
     name: 'Site Réservation',
     description: 'Un site vitrine avec module de réservation pour automatiser vos prises de rendez-vous.',
-    price: 500,
+    price: 499,
     maintenance: 'premium',
     featured: true,
     gradient: ['#6366F1', '#A78BFA'],
@@ -163,7 +163,7 @@ const plans = [
   {
     name: 'Site E-commerce',
     description: 'Une boutique en ligne complète pour vendre vos produits en toute autonomie.',
-    price: 500,
+    price: 499,
     maintenance: 'prestige',
     featured: false,
     gradient: ['#0F766E', '#134E4A'],
