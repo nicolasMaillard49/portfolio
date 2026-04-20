@@ -7,7 +7,7 @@
         <div class="section-sep mb-5" />
         <div class="flex flex-wrap items-end justify-between gap-4">
           <h2 class="font-display font-bold dark:text-white text-navy-900 text-4xl leading-tight">
-            Mes réalisations
+            Nos réalisations
           </h2>
           <a
             href="https://github.com/nicolasMaillard49"

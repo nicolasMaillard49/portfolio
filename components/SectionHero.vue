@@ -59,7 +59,7 @@
             class="btn-ripple flex items-center gap-2 px-6 py-3 rounded-xl glass-card dark:text-white text-navy-900 font-medium text-sm transition-all duration-200 hover:bg-[rgba(255,255,255,0.08)]"
             @click="createRipple"
           >
-            Me contacter
+            Nous contacter
           </a>
         </div>
 

@@ -6,7 +6,7 @@
         <p class="text-electric-500 text-sm font-medium font-display mb-3 tracking-widest uppercase">Services</p>
         <div class="section-sep mb-5" />
         <h2 class="font-display font-bold dark:text-white text-navy-900 text-4xl leading-tight">
-          Ce que je propose
+          Ce que nous proposons
         </h2>
         <p class="dark:text-gray-400 text-gray-500 mt-4 max-w-xl text-base leading-relaxed">
           Nous créons des produits web qui allient esthétique, performance et respect de vos utilisateurs.
