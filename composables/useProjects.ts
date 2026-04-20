@@ -16,6 +16,12 @@ export type ProjectDetails = {
   stackDetails: ProjectStackItem[]
 }
 
+export type ProjectScreenshots = {
+  desktop: string
+  mobile: string
+  fullPage?: string
+}
+
 export type Project = {
   id: string
   title: string
@@ -25,6 +31,7 @@ export type Project = {
   github: string | null
   url: string | null
   screenshot: string | null
+  screenshots?: ProjectScreenshots
   live: boolean
   featured: boolean
   gradient: [string, string]
@@ -167,7 +174,11 @@ const projects: Project[] = [
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
     url: 'https://www.lecoinburger.fr/',
-    screenshot: screenshot('https://www.lecoinburger.fr/'),
+    screenshot: '/projets/lecoinburger-desktop.png',
+    screenshots: {
+      desktop: '/projets/lecoinburger-desktop.png',
+      mobile: '/projets/lecoinburger-mobile.png',
+    },
     live: true,
     featured: false,
     gradient: ['#DC2626', '#7F1D1D'],
@@ -202,7 +213,11 @@ const projects: Project[] = [
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
     url: 'https://www.purewebagency.com/cafebionature/',
-    screenshot: screenshot('https://www.purewebagency.com/cafebionature/'),
+    screenshot: '/projets/cafebionature-desktop.png',
+    screenshots: {
+      desktop: '/projets/cafebionature-desktop.png',
+      mobile: '/projets/cafebionature-mobile.png',
+    },
     live: true,
     featured: false,
     gradient: ['#065F46', '#022C22'],

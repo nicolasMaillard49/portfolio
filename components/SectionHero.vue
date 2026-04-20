@@ -123,10 +123,15 @@
         <!-- Avatar circle -->
         <div class="relative z-10 animate-float">
           <div class="w-64 h-64 rounded-2xl glass-card overflow-hidden shadow-glass">
-            <!-- Placeholder avatar -->
             <div class="w-full h-full flex flex-col items-center justify-center dark:bg-gradient-to-br from-[rgba(99,102,241,0.08)] to-[rgba(167,139,250,0.04)] bg-gradient-to-br from-gray-100 to-gray-200">
-              <div class="w-24 h-24 rounded-full bg-electric-500/15 border-2 border-electric-500/25 flex items-center justify-center mb-3 backdrop-blur-sm">
-                <span class="font-display font-bold text-electric-400 text-3xl">NMF</span>
+              <div class="w-28 h-28 rounded-full bg-electric-500/15 border-2 border-electric-500/25 flex items-center justify-center mb-3 backdrop-blur-sm">
+                <img
+                  src="/logo-symbole.png"
+                  alt="Logo NMF Agence"
+                  width="112"
+                  height="112"
+                  class="w-20 h-20 object-contain drop-shadow-[0_0_14px_rgba(192,81,255,0.35)]"
+                />
               </div>
               <span class="dark:text-gray-400 text-gray-500 text-xs">NMF Agence</span>
             </div>
@@ -164,7 +169,7 @@
     <!-- Scroll indicator -->
     <button
       @click="scrollTo('about')"
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer group"
+      class="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-bounce cursor-pointer group"
       aria-label="Défiler vers la section À propos"
     >
       <span class="dark:text-gray-600 text-gray-400 text-xs group-hover:text-electric-400 transition-colors">Scroll</span>

@@ -274,7 +274,17 @@ const heroError = ref(false)
 const galleryErrors = reactive<Record<number, boolean>>({})
 
 const galleryShots = computed(() => {
-  if (!project.value?.url) return []
+  if (!project.value) return []
+  const override = project.value.screenshots
+  if (override) {
+    const shots = [
+      { label: 'Desktop', src: override.desktop },
+      { label: 'Mobile', src: override.mobile },
+    ]
+    if (override.fullPage) shots.push({ label: 'Page complète', src: override.fullPage })
+    return shots
+  }
+  if (!project.value.url) return []
   const shots = screenshotsFor(project.value.url)
   return [
     { label: 'Desktop', src: shots.desktop },
