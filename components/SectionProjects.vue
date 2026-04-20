@@ -42,6 +42,7 @@
             v-for="(project, i) in filteredProjects"
             :key="project.id"
             class="tilt-card glass-card rounded-2xl overflow-hidden group shadow-glass dark:hover:shadow-glass-hover hover:shadow-card-light-hover"
+            :class="i >= mobilePreviewCount && !showAll ? 'hidden md:flex md:flex-col' : ''"
             :style="{ animationDelay: `${i * 60}ms` }"
             @mousemove="onMouseMove"
             @mouseleave="onMouseLeave"
@@ -146,6 +147,27 @@
             </div>
           </div>
         </TransitionGroup>
+
+        <!-- Voir plus (mobile only) -->
+        <div
+          v-if="filteredProjects.length > mobilePreviewCount"
+          class="md:hidden mt-8 flex justify-center"
+        >
+          <button
+            type="button"
+            @click="showAll = !showAll"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl glass-card dark:text-white text-navy-900 text-sm font-semibold transition-all"
+          >
+            {{ showAll ? 'Voir moins' : `Voir plus (${filteredProjects.length - mobilePreviewCount})` }}
+            <svg
+              class="w-4 h-4 transition-transform duration-300"
+              :class="showAll ? 'rotate-180' : ''"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
     </div>
   </section>
 </template>
@@ -154,13 +176,28 @@
 const { onMouseMove, onMouseLeave } = useTilt()
 const { projects } = useProjects()
 const activeFilter = ref('Tous')
+const showAll = ref(false)
 
 const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce', 'WordPress']
 
+const mobilePreviewCount = 4
+const mobilePriorityIds = ['larencontre', 'anthonyfrides', 'restaurants-bordeaux', 'clipbag']
+
+const orderedProjects = computed(() => {
+  const priority = mobilePriorityIds
+    .map((id) => projects.find((p) => p.id === id))
+    .filter((p): p is (typeof projects)[number] => !!p)
+  const rest = projects.filter((p) => !mobilePriorityIds.includes(p.id))
+  return [...priority, ...rest]
+})
 
 const filteredProjects = computed(() => {
-  if (activeFilter.value === 'Tous') return projects
-  return projects.filter((p) => p.tags.includes(activeFilter.value))
+  if (activeFilter.value === 'Tous') return orderedProjects.value
+  return orderedProjects.value.filter((p) => p.tags.includes(activeFilter.value))
+})
+
+watch(activeFilter, () => {
+  showAll.value = false
 })
 </script>
 
