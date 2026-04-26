@@ -45,8 +45,8 @@
             class="relative rounded-[26px] dark:bg-[rgba(10,10,18,0.92)] bg-white backdrop-blur-xl overflow-hidden dark:shadow-none shadow-[0_4px_14px_rgba(15,23,42,0.04),0_28px_70px_-22px_rgba(99,102,241,0.18)]"
           >
             <!-- Perforation notches (left/right) -->
-            <span class="ticket-notch ticket-notch--left" aria-hidden="true" />
-            <span class="ticket-notch ticket-notch--right" aria-hidden="true" />
+            <span class="ticket-notch ticket-notch--left bg-white dark:bg-[#06060C]" aria-hidden="true" />
+            <span class="ticket-notch ticket-notch--right bg-white dark:bg-[#06060C]" aria-hidden="true" />
 
             <!-- Top bar : reference + status -->
             <div class="flex items-center justify-between gap-4 px-7 md:px-10 pt-6 pb-4 border-b dark:border-[rgba(255,255,255,0.06)] border-gray-200/70">
@@ -73,7 +73,7 @@
                 </p>
 
                 <div class="flex items-start gap-2 mb-8">
-                  <span class="font-display font-black leading-[0.9] text-[clamp(5.5rem,15vw,9rem)] tracking-[-0.04em] price-number">
+                  <span class="font-display font-black leading-[0.9] text-[clamp(5.5rem,15vw,9rem)] tracking-[-0.04em] bg-clip-text text-transparent bg-gradient-to-b from-[#1E3A5F] to-[#0F2044] dark:from-[#6366F1] dark:via-[#4F46E5] dark:to-[#312E81]">
                     299
                   </span>
                   <div class="flex flex-col pt-3 gap-1">
@@ -280,22 +280,7 @@ const pillars = [
 </script>
 
 <style scoped>
-/* Price number — gradient ink (light default, dark override) */
-.price-number {
-  background: linear-gradient(180deg, #1E3A5F 0%, #0F2044 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-}
-:global(html.dark) .price-number {
-  background: linear-gradient(180deg, #6366F1 0%, #4F46E5 55%, #312E81 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Ticket perforation notches — light by default, dark when .dark on html */
+/* Ticket perforation notches — color is set inline via Tailwind dark: variants */
 .ticket-notch {
   position: absolute;
   top: 50%;
@@ -303,7 +288,6 @@ const pillars = [
   height: 28px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: #FFFFFF;
   pointer-events: none;
   display: none;
 }
@@ -317,9 +301,6 @@ const pillars = [
 .ticket-notch--right {
   right: -14px;
   box-shadow: inset 1px 0 0 rgba(52,168,83,0.35);
-}
-:global(html.dark) .ticket-notch {
-  background: #06060C;
 }
 
 /* Seal slow rotation */
