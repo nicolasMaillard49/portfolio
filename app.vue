@@ -18,6 +18,9 @@
 
     <!-- Footer -->
     <AppFooter />
+
+    <!-- Cookie banner -->
+    <AppCookieBanner />
   </div>
 </template>
 
