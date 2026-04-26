@@ -4,7 +4,7 @@
     <SectionAbout />
     <SectionProjects />
     <SectionServices />
-    <SectionAI />
+    <SectionStarterPack />
     <SectionPricing />
     <SectionContact />
     <SectionFAQ />
