@@ -131,8 +131,8 @@ const plans = [
     description: 'Un site professionnel pour présenter votre activité et gagner en visibilité.',
     price: 299,
     maintenance: 'standard',
-    featured: false,
-    gradient: ['#2563EB', '#1E3A8A'],
+    featured: true,
+    gradient: ['#6366F1', '#A78BFA'],
     icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>',
     features: [
       'Design moderne et responsive',
@@ -148,8 +148,8 @@ const plans = [
     description: 'Un site vitrine avec module de réservation pour automatiser vos prises de rendez-vous.',
     price: 499,
     maintenance: 'premium',
-    featured: true,
-    gradient: ['#6366F1', '#A78BFA'],
+    featured: false,
+    gradient: ['#2563EB', '#1E3A8A'],
     icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>',
     features: [
       'Tout ce qui est inclus dans Site Vitrine',

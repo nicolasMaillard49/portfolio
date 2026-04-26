@@ -42,7 +42,7 @@
         >
           <!-- Inner card -->
           <div
-            class="relative rounded-[26px] dark:bg-[rgba(10,10,18,0.92)] bg-white/96 backdrop-blur-xl overflow-hidden"
+            class="relative rounded-[26px] dark:bg-[rgba(10,10,18,0.92)] bg-white backdrop-blur-xl overflow-hidden dark:shadow-none shadow-[0_4px_14px_rgba(15,23,42,0.04),0_28px_70px_-22px_rgba(99,102,241,0.18)]"
           >
             <!-- Perforation notches (left/right) -->
             <span class="ticket-notch ticket-notch--left" aria-hidden="true" />
@@ -72,7 +72,7 @@
                   Prix tout compris
                 </p>
 
-                <div class="flex items-start gap-2">
+                <div class="flex items-start gap-2 mb-8">
                   <span class="font-display font-black leading-[0.9] text-[clamp(5.5rem,15vw,9rem)] tracking-[-0.04em] price-number">
                     299
                   </span>
@@ -80,12 +80,6 @@
                     <span class="font-display font-bold text-3xl md:text-4xl dark:text-white text-navy-900">€</span>
                     <span class="text-[11px] tracking-[0.2em] uppercase font-mono dark:text-gray-500 text-gray-500">HT</span>
                   </div>
-                </div>
-
-                <div class="mt-1 mb-7">
-                  <span class="inline-block relative font-display font-medium text-base dark:text-gray-300 text-gray-700 underline-trace">
-                    Acompte 30 % · solde livraison
-                  </span>
                 </div>
 
                 <!-- SEAL — Validé Google -->
@@ -166,7 +160,7 @@
                     :style="{ animationDelay: `${120 + i * 90}ms` }"
                   >
                     <span
-                      class="font-display font-black leading-none text-2xl md:text-3xl tabular-nums tracking-tight transition-colors duration-300 dark:text-gray-600 text-gray-300 group-hover:text-electric-500 dark:group-hover:text-electric-400"
+                      class="font-display font-black leading-none text-2xl md:text-3xl tabular-nums tracking-tight transition-colors duration-300 dark:text-gray-600 text-gray-400 group-hover:text-electric-500 dark:group-hover:text-electric-400"
                     >
                       {{ String(i + 1).padStart(2, '0') }}
                     </span>
@@ -286,39 +280,22 @@ const pillars = [
 </script>
 
 <style scoped>
-/* Price number — gradient ink */
+/* Price number — gradient ink (light default, dark override) */
 .price-number {
-  background: linear-gradient(180deg, #6366F1 0%, #4F46E5 55%, #312E81 100%);
+  background: linear-gradient(180deg, #1E3A5F 0%, #0F2044 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
 }
-:global(html:not(.dark)) .price-number {
-  background: linear-gradient(180deg, #1E3A5F 0%, #0F2044 100%);
+:global(html.dark) .price-number {
+  background: linear-gradient(180deg, #6366F1 0%, #4F46E5 55%, #312E81 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Underline trace under "Acompte 30%..." */
-.underline-trace::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 2px;
-  background: linear-gradient(90deg, #6366F1, #22D3EE);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: traceLine 1.4s 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-@keyframes traceLine {
-  to { transform: scaleX(1); }
-}
-
-/* Ticket perforation notches */
+/* Ticket perforation notches — light by default, dark when .dark on html */
 .ticket-notch {
   position: absolute;
   top: 50%;
@@ -326,7 +303,7 @@ const pillars = [
   height: 28px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: var(--bg-page, #06060C);
+  background: #FFFFFF;
   pointer-events: none;
   display: none;
 }
@@ -341,8 +318,8 @@ const pillars = [
   right: -14px;
   box-shadow: inset 1px 0 0 rgba(52,168,83,0.35);
 }
-:global(html:not(.dark)) .ticket-notch {
-  background: #FFFFFF;
+:global(html.dark) .ticket-notch {
+  background: #06060C;
 }
 
 /* Seal slow rotation */
@@ -365,10 +342,9 @@ const pillars = [
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .seal-rotate, .pillar, .underline-trace::after {
+  .seal-rotate, .pillar {
     animation: none !important;
   }
   .pillar { opacity: 1; transform: none; }
-  .underline-trace::after { transform: scaleX(1); }
 }
 </style>
