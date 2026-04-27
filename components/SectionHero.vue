@@ -145,15 +145,23 @@
               </svg>
             </div>
             <div class="min-w-0">
-              <p class="dark:text-white text-gray-900 text-xs font-semibold leading-tight">Concepteur Développeur d'Applications</p>
+              <p class="dark:text-white text-gray-900 text-xs font-semibold leading-tight">Développeur d'Applications</p>
               <p class="dark:text-gray-400 text-gray-500 text-[10px]">Diplôme certifié</p>
             </div>
           </div>
 
-          <!-- Floating pill: experience -->
-          <div class="absolute -bottom-3 -right-3 glass-card bg-white/[0.02] rounded-full px-3 py-1.5 shadow-glass flex items-center gap-1.5 whitespace-nowrap">
-            <span class="w-1.5 h-1.5 rounded-full bg-electric-400 animate-pulse" aria-hidden="true" />
-            <span class="dark:text-white text-gray-900 text-[11px] font-semibold">6 ans d'expérience</span>
+          <!-- Floating badge: experience -->
+          <div class="absolute -top-4 -left-6 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-accent-violet/15 flex items-center justify-center">
+              <svg class="w-4 h-4 text-accent-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 7h7v7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="dark:text-white text-gray-900 text-xs font-semibold">6 ans d'expérience</p>
+              <p class="dark:text-gray-400 text-gray-500 text-[10px]">Depuis 2020</p>
+            </div>
           </div>
 
           <!-- Floating badge: agency -->
