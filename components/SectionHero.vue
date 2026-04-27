@@ -151,7 +151,7 @@
           </div>
 
           <!-- Floating badge: experience -->
-          <div class="absolute top-1/2 -translate-y-1/2 -left-6 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
+          <div class="absolute top-1/2 -translate-y-1/2 right-full mr-3 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
             <div class="w-7 h-7 rounded-lg bg-accent-violet/15 flex items-center justify-center">
               <svg class="w-4 h-4 text-accent-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8"/>
