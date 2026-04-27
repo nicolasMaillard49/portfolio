@@ -137,17 +137,23 @@
             </div>
           </div>
 
-          <!-- Floating badge: studi -->
-          <div class="absolute -bottom-4 -left-6 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
-            <div class="w-7 h-7 rounded-lg bg-electric-500/15 flex items-center justify-center">
+          <!-- Floating badge: diplôme -->
+          <div class="absolute -bottom-4 -left-6 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2 max-w-[210px]">
+            <div class="w-7 h-7 shrink-0 rounded-lg bg-electric-500/15 flex items-center justify-center">
               <svg class="w-4 h-4 text-electric-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
               </svg>
             </div>
-            <div>
-              <p class="dark:text-white text-gray-900 text-xs font-semibold">Bachelor Dev Web</p>
-              <p class="dark:text-gray-400 text-gray-500 text-[10px]">Studi.fr</p>
+            <div class="min-w-0">
+              <p class="dark:text-white text-gray-900 text-xs font-semibold leading-tight">Concepteur Développeur d'Applications</p>
+              <p class="dark:text-gray-400 text-gray-500 text-[10px]">Diplôme certifié</p>
             </div>
+          </div>
+
+          <!-- Floating pill: experience -->
+          <div class="absolute -bottom-3 -right-3 glass-card bg-white/[0.02] rounded-full px-3 py-1.5 shadow-glass flex items-center gap-1.5 whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-electric-400 animate-pulse" aria-hidden="true" />
+            <span class="dark:text-white text-gray-900 text-[11px] font-semibold">6 ans d'expérience</span>
           </div>
 
           <!-- Floating badge: agency -->
