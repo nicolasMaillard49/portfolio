@@ -151,16 +151,19 @@
           </div>
 
           <!-- Floating badge: experience -->
-          <div class="absolute top-1/2 -translate-y-1/2 right-full mr-3 glass-card bg-white/[0.02] rounded-xl px-3 py-2 shadow-glass flex items-center gap-2">
-            <div class="w-7 h-7 rounded-lg bg-accent-violet/15 flex items-center justify-center">
-              <svg class="w-4 h-4 text-accent-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <div class="absolute top-1/2 -translate-y-1/2 right-full mr-1 sm:mr-3 glass-card bg-white/[0.02] rounded-lg sm:rounded-xl px-1.5 py-1 sm:px-3 sm:py-2 shadow-glass flex items-center gap-1.5 sm:gap-2">
+            <div class="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg bg-accent-violet/15 flex items-center justify-center shrink-0">
+              <svg class="w-3 h-3 sm:w-4 sm:h-4 text-accent-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14 7h7v7"/>
               </svg>
             </div>
-            <div>
-              <p class="dark:text-white text-gray-900 text-xs font-semibold">6 ans d'expérience</p>
-              <p class="dark:text-gray-400 text-gray-500 text-[10px]">Depuis 2020</p>
+            <div class="leading-tight">
+              <p class="dark:text-white text-gray-900 text-[10px] sm:text-xs font-semibold whitespace-nowrap">
+                <span class="sm:hidden">6 ans</span>
+                <span class="hidden sm:inline">6 ans d'expérience</span>
+              </p>
+              <p class="hidden sm:block dark:text-gray-400 text-gray-500 text-[10px]">Depuis 2020</p>
             </div>
           </div>
 
