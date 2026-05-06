@@ -21,6 +21,34 @@
         </div>
       </div>
 
+      <!-- New creation banner -->
+      <div class="reveal mb-8">
+        <NuxtLink
+          to="/projets/trailflow-boutique"
+          class="group block relative overflow-hidden rounded-2xl glass-card border border-electric-500/30 hover:border-electric-400/60 transition-all"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-electric-500/10 via-transparent to-transparent pointer-events-none" />
+          <div class="relative flex flex-wrap items-center gap-4 p-5">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-electric-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full">
+              <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+              Nouveau
+            </span>
+            <div class="flex-1 min-w-[220px]">
+              <p class="font-display font-semibold dark:text-white text-navy-900 text-base leading-snug">
+                Trailflow Boutique — la nouvelle création
+              </p>
+              <p class="text-xs dark:text-gray-400 text-gray-500 mt-0.5">
+                Boutique e-commerce dédiée à l'univers du trail running. Disponible sur trailflow.boutique.
+              </p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-electric-400 group-hover:text-electric-300 transition-colors">
+              Découvrir
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </NuxtLink>
+      </div>
+
       <!-- Filter tabs -->
       <div class="reveal reveal-delay-1 flex flex-wrap gap-2 mb-10">
         <button
@@ -83,8 +111,12 @@
                   GitHub
                 </a>
               </div>
+              <!-- New badge -->
+              <div v-if="project.id === 'trailflow-boutique'" class="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-electric-500 to-electric-400 rounded-full text-white text-[10px] font-bold tracking-wide z-10 shadow-glow-blue-sm">
+                ✨ Nouveau
+              </div>
               <!-- Featured badge -->
-              <div v-if="project.featured" class="absolute top-3 left-3 px-2.5 py-1 bg-electric-500 rounded-full text-white text-[10px] font-semibold tracking-wide z-10">
+              <div v-else-if="project.featured" class="absolute top-3 left-3 px-2.5 py-1 bg-electric-500 rounded-full text-white text-[10px] font-semibold tracking-wide z-10">
                 ⭐ Mis en avant
               </div>
               <!-- Live badge -->
@@ -183,8 +215,8 @@ const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce',
 
 const mobilePreviewCount = 4
 const desktopPreviewCount = 3
-const desktopPriorityIds = ['anthonyfrides', 'larencontre', 'restaurants-bordeaux', 'clipbag']
-const mobilePriorityIds = ['larencontre', 'anthonyfrides', 'restaurants-bordeaux', 'clipbag']
+const desktopPriorityIds = ['trailflow-boutique', 'anthonyfrides', 'larencontre', 'restaurants-bordeaux', 'clipbag']
+const mobilePriorityIds = ['trailflow-boutique', 'larencontre', 'anthonyfrides', 'restaurants-bordeaux', 'clipbag']
 
 const isMd = ref(false)
 onMounted(() => {
