@@ -215,8 +215,8 @@ const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce',
 
 const mobilePreviewCount = 4
 const desktopPreviewCount = 3
-const desktopPriorityIds = ['trailflow-boutique', 'anthonyfrides', 'larencontre', 'restaurants-bordeaux', 'clipbag']
-const mobilePriorityIds = ['trailflow-boutique', 'larencontre', 'anthonyfrides', 'restaurants-bordeaux', 'clipbag']
+const desktopPriorityIds = ['trailflow-boutique', 'anthonyfrides', 'larencontre', 'clipbag']
+const mobilePriorityIds = ['trailflow-boutique', 'larencontre', 'anthonyfrides', 'clipbag']
 
 const isMd = ref(false)
 onMounted(() => {

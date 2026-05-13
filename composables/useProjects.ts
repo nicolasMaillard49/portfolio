@@ -34,6 +34,7 @@ export type Project = {
   screenshots?: ProjectScreenshots
   live: boolean
   featured: boolean
+  hidden?: boolean
   gradient: [string, string]
   tags: string[]
   icon: string
@@ -291,6 +292,7 @@ const projects: Project[] = [
     screenshot: screenshot('https://www.restaurants-bordeaux.com/'),
     live: true,
     featured: true,
+    hidden: true,
     gradient: ['#B45309', '#78350F'],
     tags: ['Nuxt'],
     icon: icons.cart,
@@ -507,14 +509,15 @@ const projects: Project[] = [
 ]
 
 export const useProjects = () => {
-  const getBySlug = (id: string) => projects.find((p) => p.id === id)
+  const visibleProjects = projects.filter((p) => !p.hidden)
+  const getBySlug = (id: string) => visibleProjects.find((p) => p.id === id)
   const getRelated = (current: Project, limit = 3) => {
-    const sameType = projects.filter((p) => p.id !== current.id && p.live && p.type === current.type)
+    const sameType = visibleProjects.filter((p) => p.id !== current.id && p.live && p.type === current.type)
     if (sameType.length >= limit) return sameType.slice(0, limit)
-    const others = projects.filter(
+    const others = visibleProjects.filter(
       (p) => p.id !== current.id && p.live && p.type !== current.type && !sameType.includes(p),
     )
     return [...sameType, ...others].slice(0, limit)
   }
-  return { projects, getBySlug, getRelated }
+  return { projects: visibleProjects, getBySlug, getRelated }
 }
