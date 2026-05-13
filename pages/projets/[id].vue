@@ -68,12 +68,15 @@
         </div>
 
         <div class="glass-card rounded-2xl overflow-hidden shadow-glass relative">
-          <img
+          <NuxtImg
             v-if="project.screenshot && !heroError"
             :src="project.screenshot"
             :alt="`Aperçu de ${project.title}`"
             class="w-full h-auto max-h-[600px] object-cover object-top"
             loading="eager"
+            width="1280"
+            height="720"
+            sizes="sm:100vw md:90vw lg:1280px"
             @error="heroError = true"
           />
           <div
@@ -180,7 +183,7 @@
         <div class="grid md:grid-cols-3 gap-5">
           <figure v-for="(shot, idx) in galleryShots" :key="shot.label" class="glass-card rounded-2xl overflow-hidden shadow-glass group">
             <div class="aspect-[4/3] overflow-hidden bg-gray-900 flex items-center justify-center relative">
-              <img
+              <NuxtImg
                 v-if="!galleryErrors[idx]"
                 :src="shot.src"
                 :alt="`${project.title} — ${shot.label}`"
@@ -189,6 +192,9 @@
                   shot.label === 'Mobile' ? 'h-full w-auto object-contain' : 'w-full h-full object-cover object-top'
                 ]"
                 loading="lazy"
+                width="600"
+                height="450"
+                sizes="sm:100vw md:33vw"
                 @error="galleryErrors[idx] = true"
               />
               <div
@@ -221,7 +227,7 @@
             class="glass-card rounded-2xl overflow-hidden shadow-glass card-lift group block"
           >
             <div class="relative h-36 overflow-hidden bg-gray-900">
-              <img v-if="rel.screenshot" :src="rel.screenshot" :alt="rel.title" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <NuxtImg v-if="rel.screenshot" :src="rel.screenshot" :alt="rel.title" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="200" sizes="sm:100vw md:33vw" />
               <div v-else class="w-full h-full" :style="`background: linear-gradient(135deg, ${rel.gradient[0]} 0%, ${rel.gradient[1]} 100%)`" />
             </div>
             <div class="p-4 space-y-2">

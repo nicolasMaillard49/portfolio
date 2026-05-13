@@ -11,7 +11,20 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vueuse/nuxt',
     '@nuxtjs/sitemap',
+    '@nuxt/image',
   ],
+
+  image: {
+    format: ['avif', 'webp'],
+    quality: 80,
+    screens: {
+      xs: 320,
+      sm: 480,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+    },
+  },
 
   site: {
     url: 'https://nmf-agence.com',

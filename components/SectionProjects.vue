@@ -76,12 +76,15 @@
           >
             <!-- Screenshot preview -->
             <div class="relative h-44 overflow-hidden bg-gray-900">
-              <img
+              <NuxtImg
                 v-if="project.screenshot"
                 :src="project.screenshot"
                 :alt="`Aperçu de ${project.title}`"
                 class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
+                width="600"
+                height="400"
+                sizes="sm:100vw md:50vw lg:33vw"
               />
               <!-- Fallback gradient if no screenshot -->
               <div
