@@ -144,7 +144,7 @@ const projects: Project[] = [
   {
     id: 'anthonyfrides',
     title: 'Anthony Fridès',
-    description: 'Site vitrine professionnel pour un expert en communication et relations publiques. Design moderne mettant en valeur son expertise et ses prestations.',
+    description: "Site vitrine pour un maître d'œuvre du bâtiment. Design architectural sobre mettant en valeur les réalisations et l'expertise technique.",
     type: 'Site Vitrine',
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
@@ -158,18 +158,18 @@ const projects: Project[] = [
     featured: true,
     gradient: ['#1E3A5F', '#2563EB'],
     tags: ['WordPress'],
-    icon: icons.user,
+    icon: icons.building,
     details: {
-      context: "Anthony Fridès, expert en communication et relations publiques, avait besoin d'un site vitrine reflétant son expertise et attirant des clients exigeants. L'enjeu : se positionner comme référence sur son domaine sans tomber dans le site générique.",
+      context: "Anthony Fridès, maître d'œuvre dans le bâtiment, avait besoin d'un site vitrine reflétant son expertise et présentant ses réalisations. L'enjeu : inspirer confiance dès la homepage et générer des demandes de chantier qualifiées.",
       challenges: [
-        "Retranscrire la personnalité et le storytelling d'Anthony à travers le design",
+        "Mettre en valeur les réalisations architecturales avec une iconographie soignée",
         "Autonomie complète pour la mise à jour des contenus par le client",
         "SEO local optimisé pour capter une clientèle ciblée",
         "Temps de chargement rapide malgré la richesse visuelle",
       ],
       features: [
-        { icon: '✍️', title: 'Édition autonome', description: "Back-office WordPress permettant au client de modifier textes et images sans technique." },
-        { icon: '🎨', title: 'Design sur-mesure', description: "Typographie éditoriale, palette raffinée et mises en page éditoriales." },
+        { icon: '🏠', title: 'Galerie de chantiers', description: "Mise en avant des projets réalisés avec photos avant/après et descriptifs détaillés." },
+        { icon: '🎨', title: 'Design architectural', description: "Typographie sobre, palette minérale et mises en page épurées à l'image du métier." },
         { icon: '🔍', title: 'SEO optimisé', description: "Structure sémantique, balises meta personnalisées et maillage interne pensé." },
         { icon: '📱', title: 'Responsive premium', description: "Expérience mobile soignée, avec transitions fluides et lisibilité parfaite." },
       ],
