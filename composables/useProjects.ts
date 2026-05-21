@@ -34,6 +34,7 @@ export type Project = {
   screenshots?: ProjectScreenshots
   live: boolean
   featured: boolean
+  hidden?: boolean
   gradient: [string, string]
   tags: string[]
   icon: string
@@ -59,25 +60,65 @@ const icons = {
   shield: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z"/></svg>',
   home: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
   mountain: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20l5.5-9 4 6 3-5L21 20H3z"/><circle cx="16" cy="6" r="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  bolt: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>',
 }
 
 const projects: Project[] = [
   {
+    id: 'gp-elec-49',
+    title: 'GP Élec 49',
+    description: "Toute nouvelle création : site vitrine pour un électricien artisan du Maine-et-Loire. Présentation des prestations, certifications mises en avant et demande de devis simplifiée.",
+    type: 'Site Vitrine',
+    tech: ['Nuxt 3', 'TypeScript', 'TailwindCSS'],
+    github: null,
+    url: 'https://gp-elec-49.com',
+    screenshot: screenshot('https://gp-elec-49.com'),
+    live: true,
+    featured: true,
+    gradient: ['#F59E0B', '#1F2937'],
+    tags: ['Nuxt', 'TypeScript'],
+    icon: icons.bolt,
+    details: {
+      context: "GP Élec 49 est un électricien artisan basé dans le Maine-et-Loire (département 49). Le site vitrine devait inspirer confiance, présenter clairement les prestations (installation, rénovation, dépannage, mise aux normes) et générer des demandes de devis qualifiées pour particuliers et professionnels.",
+      challenges: [
+        "Inspirer confiance dès la homepage (certifications, assurances, références)",
+        "Présenter les prestations électriques sans tomber dans le jargon technique",
+        "SEO local solide pour capter les recherches 'électricien Maine-et-Loire / 49'",
+        "Formulaire de devis simple mais qualifiant (type de prestation, urgence)",
+      ],
+      features: [
+        { icon: '⚡', title: 'Prestations détaillées', description: "Installation, rénovation, dépannage, mise aux normes : chaque service est décrit clairement." },
+        { icon: '🛡️', title: 'Certifications mises en avant', description: "Qualifelec, assurance décennale et garanties visibles dès la homepage pour rassurer." },
+        { icon: '📞', title: 'Demande de devis', description: "Formulaire qualifiant avec type de prestation, urgence et disponibilités du client." },
+        { icon: '📍', title: 'SEO local', description: "Optimisation sur les requêtes 'électricien + commune 49' à fort intent commercial." },
+      ],
+      stackDetails: [
+        { name: 'Nuxt 3', reason: "SSG + SEO natif pour un référencement local maximal et un chargement instantané." },
+        { name: 'TypeScript', reason: "Documente les intentions et évite les régressions." },
+        { name: 'TailwindCSS', reason: "Design system jaune électrique / anthracite déployé rapidement, responsive natif." },
+      ],
+    },
+  },
+  {
     id: 'trailflow-boutique',
     title: 'Trailflow Boutique',
-    description: "Toute nouvelle boutique en ligne dédiée à l'univers du trail running. Catalogue d'équipements, paiement Stripe et expérience d'achat fluide pensée pour les coureurs.",
+    description: "Boutique en ligne dédiée à l'univers du trail running. Catalogue d'équipements, paiement Stripe et expérience d'achat fluide pensée pour les coureurs.",
     type: 'E-commerce',
     tech: ['Nuxt', 'Stripe', 'TailwindCSS'],
     github: null,
     url: 'https://trailflow.boutique',
-    screenshot: screenshot('https://trailflow.boutique'),
+    screenshot: '/projets/trailflow-boutique-desktop.webp',
+    screenshots: {
+      desktop: '/projets/trailflow-boutique-desktop.webp',
+      mobile: '/projets/trailflow-boutique-mobile.webp',
+    },
     live: true,
     featured: true,
     gradient: ['#0F766E', '#1E3A8A'],
     tags: ['Nuxt', 'E-commerce'],
     icon: icons.mountain,
     details: {
-      context: "Trailflow.boutique est la dernière création en date : une boutique en ligne dédiée à l'univers du trail running. L'objectif était de proposer une expérience d'achat fluide et engageante pour les passionnés de course nature, avec un catalogue d'équipements soigneusement sélectionnés.",
+      context: "Trailflow.boutique est une boutique en ligne dédiée à l'univers du trail running. L'objectif était de proposer une expérience d'achat fluide et engageante pour les passionnés de course nature, avec un catalogue d'équipements soigneusement sélectionnés.",
       challenges: [
         "Construire une identité visuelle qui parle aux coureurs (énergie, nature, performance)",
         "Intégrer un paiement Stripe sécurisé avec gestion complète des commandes",
@@ -105,7 +146,11 @@ const projects: Project[] = [
     tech: ['Nuxt 3', 'TypeScript', 'TailwindCSS'],
     github: 'https://github.com/nicolasMaillard49/purewebagency-nuxt',
     url: 'https://purewebagency.com',
-    screenshot: screenshot('https://purewebagency.com'),
+    screenshot: '/projets/purewebagency-desktop.webp',
+    screenshots: {
+      desktop: '/projets/purewebagency-desktop.webp',
+      mobile: '/projets/purewebagency-mobile.webp',
+    },
     live: true,
     featured: true,
     gradient: ['#1E3A5F', '#0F2044'],
@@ -135,28 +180,32 @@ const projects: Project[] = [
   {
     id: 'anthonyfrides',
     title: 'Anthony Fridès',
-    description: 'Site vitrine professionnel pour un expert en communication et relations publiques. Design moderne mettant en valeur son expertise et ses prestations.',
+    description: "Site vitrine pour un maître d'œuvre du bâtiment. Design architectural sobre mettant en valeur les réalisations et l'expertise technique.",
     type: 'Site Vitrine',
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
     url: 'https://www.anthonyfrides.fr/',
-    screenshot: screenshot('https://www.anthonyfrides.fr/'),
+    screenshot: '/projets/anthonyfrides-desktop.webp',
+    screenshots: {
+      desktop: '/projets/anthonyfrides-desktop.webp',
+      mobile: '/projets/anthonyfrides-mobile.webp',
+    },
     live: true,
     featured: true,
     gradient: ['#1E3A5F', '#2563EB'],
     tags: ['WordPress'],
-    icon: icons.user,
+    icon: icons.building,
     details: {
-      context: "Anthony Fridès, expert en communication et relations publiques, avait besoin d'un site vitrine reflétant son expertise et attirant des clients exigeants. L'enjeu : se positionner comme référence sur son domaine sans tomber dans le site générique.",
+      context: "Anthony Fridès, maître d'œuvre dans le bâtiment, avait besoin d'un site vitrine reflétant son expertise et présentant ses réalisations. L'enjeu : inspirer confiance dès la homepage et générer des demandes de chantier qualifiées.",
       challenges: [
-        "Retranscrire la personnalité et le storytelling d'Anthony à travers le design",
+        "Mettre en valeur les réalisations architecturales avec une iconographie soignée",
         "Autonomie complète pour la mise à jour des contenus par le client",
         "SEO local optimisé pour capter une clientèle ciblée",
         "Temps de chargement rapide malgré la richesse visuelle",
       ],
       features: [
-        { icon: '✍️', title: 'Édition autonome', description: "Back-office WordPress permettant au client de modifier textes et images sans technique." },
-        { icon: '🎨', title: 'Design sur-mesure', description: "Typographie éditoriale, palette raffinée et mises en page éditoriales." },
+        { icon: '🏠', title: 'Galerie de chantiers', description: "Mise en avant des projets réalisés avec photos avant/après et descriptifs détaillés." },
+        { icon: '🎨', title: 'Design architectural', description: "Typographie sobre, palette minérale et mises en page épurées à l'image du métier." },
         { icon: '🔍', title: 'SEO optimisé', description: "Structure sémantique, balises meta personnalisées et maillage interne pensé." },
         { icon: '📱', title: 'Responsive premium', description: "Expérience mobile soignée, avec transitions fluides et lisibilité parfaite." },
       ],
@@ -175,7 +224,11 @@ const projects: Project[] = [
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
     url: 'https://restaurantlarencontre.com/',
-    screenshot: screenshot('https://restaurantlarencontre.com/'),
+    screenshot: '/projets/larencontre-desktop.webp',
+    screenshots: {
+      desktop: '/projets/larencontre-desktop.webp',
+      mobile: '/projets/larencontre-mobile.webp',
+    },
     live: true,
     featured: false,
     gradient: ['#92400E', '#78350F'],
@@ -210,10 +263,10 @@ const projects: Project[] = [
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
     url: 'https://www.lecoinburger.fr/',
-    screenshot: '/projets/lecoinburger-desktop.png',
+    screenshot: '/projets/lecoinburger-desktop.webp',
     screenshots: {
-      desktop: '/projets/lecoinburger-desktop.png',
-      mobile: '/projets/lecoinburger-mobile.png',
+      desktop: '/projets/lecoinburger-desktop.webp',
+      mobile: '/projets/lecoinburger-mobile.webp',
     },
     live: true,
     featured: false,
@@ -249,10 +302,10 @@ const projects: Project[] = [
     tech: ['WordPress', 'CSS3', 'SEO'],
     github: null,
     url: 'https://www.purewebagency.com/cafebionature/',
-    screenshot: '/projets/cafebionature-desktop.png',
+    screenshot: '/projets/cafebionature-desktop.webp',
     screenshots: {
-      desktop: '/projets/cafebionature-desktop.png',
-      mobile: '/projets/cafebionature-mobile.png',
+      desktop: '/projets/cafebionature-desktop.webp',
+      mobile: '/projets/cafebionature-mobile.webp',
     },
     live: true,
     featured: false,
@@ -291,6 +344,7 @@ const projects: Project[] = [
     screenshot: screenshot('https://www.restaurants-bordeaux.com/'),
     live: true,
     featured: true,
+    hidden: true,
     gradient: ['#B45309', '#78350F'],
     tags: ['Nuxt'],
     icon: icons.cart,
@@ -323,7 +377,11 @@ const projects: Project[] = [
     tech: ['Nuxt', 'Stripe', 'TailwindCSS'],
     github: null,
     url: 'https://pawly.shopping',
-    screenshot: screenshot('https://pawly.shopping'),
+    screenshot: '/projets/pawly-desktop.webp',
+    screenshots: {
+      desktop: '/projets/pawly-desktop.webp',
+      mobile: '/projets/pawly-mobile.webp',
+    },
     live: true,
     featured: true,
     gradient: ['#F472B6', '#8B5CF6'],
@@ -358,7 +416,11 @@ const projects: Project[] = [
     tech: ['Nuxt', 'Stripe', 'TailwindCSS'],
     github: null,
     url: 'https://clipbag.shop',
-    screenshot: screenshot('https://clipbag.shop'),
+    screenshot: '/projets/clipbag-desktop.webp',
+    screenshots: {
+      desktop: '/projets/clipbag-desktop.webp',
+      mobile: '/projets/clipbag-mobile.webp',
+    },
     live: true,
     featured: true,
     gradient: ['#0F766E', '#134E4A'],
@@ -394,10 +456,10 @@ const projects: Project[] = [
     tech: ['Nuxt 3', 'TypeScript', 'TailwindCSS'],
     github: 'https://github.com/nicolasMaillard49/spuc-boxing-club',
     url: null,
-    screenshot: '/projets/spuc-boxing-desktop.png',
+    screenshot: '/projets/spuc-boxing-desktop.webp',
     screenshots: {
-      desktop: '/projets/spuc-boxing-desktop.png',
-      mobile: '/projets/spuc-boxing-mobile.png',
+      desktop: '/projets/spuc-boxing-desktop.webp',
+      mobile: '/projets/spuc-boxing-mobile.webp',
     },
     live: false,
     featured: false,
@@ -433,10 +495,10 @@ const projects: Project[] = [
     tech: ['Nuxt 3', 'TypeScript', 'TailwindCSS'],
     github: 'https://github.com/nicolasMaillard49/julien-perret-charpentier',
     url: null,
-    screenshot: '/projets/julien-perret-desktop.png',
+    screenshot: '/projets/julien-perret-desktop.webp',
     screenshots: {
-      desktop: '/projets/julien-perret-desktop.png',
-      mobile: '/projets/julien-perret-mobile.png',
+      desktop: '/projets/julien-perret-desktop.webp',
+      mobile: '/projets/julien-perret-mobile.webp',
     },
     live: false,
     featured: false,
@@ -472,10 +534,10 @@ const projects: Project[] = [
     tech: ['Next.js 14', 'TypeScript', 'TailwindCSS'],
     github: 'https://github.com/nicolasMaillard49/kraft-fleuriste',
     url: null,
-    screenshot: '/projets/kraft-desktop.png',
+    screenshot: '/projets/kraft-desktop.webp',
     screenshots: {
-      desktop: '/projets/kraft-desktop.png',
-      mobile: '/projets/kraft-mobile.png',
+      desktop: '/projets/kraft-desktop.webp',
+      mobile: '/projets/kraft-mobile.webp',
     },
     live: false,
     featured: false,
@@ -507,14 +569,15 @@ const projects: Project[] = [
 ]
 
 export const useProjects = () => {
-  const getBySlug = (id: string) => projects.find((p) => p.id === id)
+  const visibleProjects = projects.filter((p) => !p.hidden)
+  const getBySlug = (id: string) => visibleProjects.find((p) => p.id === id)
   const getRelated = (current: Project, limit = 3) => {
-    const sameType = projects.filter((p) => p.id !== current.id && p.live && p.type === current.type)
+    const sameType = visibleProjects.filter((p) => p.id !== current.id && p.live && p.type === current.type)
     if (sameType.length >= limit) return sameType.slice(0, limit)
-    const others = projects.filter(
+    const others = visibleProjects.filter(
       (p) => p.id !== current.id && p.live && p.type !== current.type && !sameType.includes(p),
     )
     return [...sameType, ...others].slice(0, limit)
   }
-  return { projects, getBySlug, getRelated }
+  return { projects: visibleProjects, getBySlug, getRelated }
 }
