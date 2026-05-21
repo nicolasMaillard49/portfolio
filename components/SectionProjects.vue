@@ -24,7 +24,7 @@
       <!-- New creation banner -->
       <div class="reveal mb-8">
         <NuxtLink
-          to="/projets/trailflow-boutique"
+          to="/projets/gp-elec-49"
           class="group block relative overflow-hidden rounded-2xl glass-card border border-electric-500/30 hover:border-electric-400/60 transition-all"
         >
           <div class="absolute inset-0 bg-gradient-to-r from-electric-500/10 via-transparent to-transparent pointer-events-none" />
@@ -35,10 +35,10 @@
             </span>
             <div class="flex-1 min-w-[220px]">
               <p class="font-display font-semibold dark:text-white text-navy-900 text-base leading-snug">
-                Trailflow Boutique — la nouvelle création
+                GP Élec 49 — la nouvelle création
               </p>
               <p class="text-xs dark:text-gray-400 text-gray-500 mt-0.5">
-                Boutique e-commerce dédiée à l'univers du trail running. Disponible sur trailflow.boutique.
+                Site vitrine pour un électricien artisan du Maine-et-Loire. Disponible sur gp-elec-49.com.
               </p>
             </div>
             <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-electric-400 group-hover:text-electric-300 transition-colors">
@@ -115,7 +115,7 @@
                 </a>
               </div>
               <!-- New badge -->
-              <div v-if="project.id === 'trailflow-boutique'" class="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-electric-500 to-electric-400 rounded-full text-white text-[10px] font-bold tracking-wide z-10 shadow-glow-blue-sm">
+              <div v-if="project.id === 'gp-elec-49'" class="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-electric-500 to-electric-400 rounded-full text-white text-[10px] font-bold tracking-wide z-10 shadow-glow-blue-sm">
                 ✨ Nouveau
               </div>
               <!-- Featured badge -->
@@ -218,8 +218,8 @@ const filters = ['Tous', 'Vue.js', 'Nuxt', 'TypeScript', 'NestJS', 'E-commerce',
 
 const mobilePreviewCount = 4
 const desktopPreviewCount = 3
-const desktopPriorityIds = ['trailflow-boutique', 'anthonyfrides', 'larencontre', 'clipbag']
-const mobilePriorityIds = ['trailflow-boutique', 'larencontre', 'anthonyfrides', 'clipbag']
+const desktopPriorityIds = ['gp-elec-49', 'trailflow-boutique', 'anthonyfrides', 'larencontre', 'clipbag']
+const mobilePriorityIds = ['gp-elec-49', 'trailflow-boutique', 'larencontre', 'anthonyfrides', 'clipbag']
 
 const isMd = ref(false)
 onMounted(() => {
