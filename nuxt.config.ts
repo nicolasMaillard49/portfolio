@@ -44,6 +44,7 @@ export default defineNuxtConfig({
       title: 'NMF Agence — Agence Web Full-Stack Bordeaux',
       meta: [
         { name: 'google-site-verification', content: 'RHew6OnmcZMqNnWZeXSWcUjem5Y9UICELSmpixaxuRQ' },
+        { name: 'facebook-domain-verification', content: '36qbxdfc9ogw37hqmoredxss4dtfrw' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
         {
           name: 'description',
